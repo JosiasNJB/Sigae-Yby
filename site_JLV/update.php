@@ -63,6 +63,9 @@
 
 				else{
 
+					//criptografando a senha
+					$senha=md5($senha);
+
 					//Sql query para inserir os valores obtidos na tabela
 					$sql="UPDATE user set nome='$nome', email='$email', senha='$senha', etnia='$etnia' WHERE id_user = $id2 ;";
 
