@@ -53,7 +53,8 @@
 					$admpag = "";
 				}
 
-				$perfil = "<li> $nome </li>";
+				$perfil = "<li><a href='profile.php'> $nome </a></li>";
+				$dep = "<li><a href='depoimentos.php'>Depoimentos</a></li>";
 				$logout = "<li><a href='logout.php'>Log out</a></li>";
 				$onoff = "";
 				$title = $nome;
@@ -62,6 +63,7 @@
 			//diferenciando o header caso o usuario nao esteja logado
 			else{
 				$perfil = "";
+				$dep = "";
 				$logout = "";
 				$onoff = "<li><a href='login.php'>Login</a></li>";
 				$title = "Yby";
@@ -98,7 +100,7 @@
 				and from there you'd be able to log off and alter your own data like on the update page-->
 				<li><a href="graph.php">Gráficos</a></li>
 				<li><a href="usuarios.php">Usuários</a></li>
-				<li><a href="depoimentos.php">Depoimentos</a></li>
+				<?php echo $dep; ?>
 				<?php echo $onoff; ?>
 				<?php echo $admpag; ?>
 				<?php echo $logout; ?>

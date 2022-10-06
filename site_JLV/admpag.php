@@ -80,6 +80,67 @@
                 </table>                    
             </div>                     
         </div>
+        <div class="row">
+            <div>
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th class="center"> Etnias </th>                                                   
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                    <?php
+                    
+                        //sql query como uma string selecionando todos os dados dos usuarios na tabela
+                       // $sql="SELECT * FROM etnia";
+                        $sql="SELECT * FROM user";
+
+                        /* Está retornando, de dentro da tabela representada pela variável "$connect",
+					    um array que contém todos os resultados que atendem aos requisitos da consulta
+					    dentro de "$sql".
+					    */
+                        $resultado= mysqli_query($connect,$sql);
+                        
+                        /* Enquanto o array que contém os resultados da consulta tiver pelo menos 1 index,
+					    "$dados" irá buscar um array contendo os dados do index.
+                        */
+                        if (mysqli_num_rows($resultado)>0){
+                            while($dados =mysqli_fetch_array($resultado)){
+          
+                            ?>
+                        <tr>
+                            <!-- exibindo os dados obtidos do usuario -->
+                            <!-- <td class="center"><?php //echo $dados['descetnia'];?></td> -->
+                            <td class="center"><?php echo $dados['etnia'];?></td>
+                        </tr>
+
+                        
+
+                        <?php
+                                }
+                            }
+                            else{
+                        ?>
+
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+				        </tr>
+
+                        <?php
+                            }
+                        ?>
+                        <tr>
+                            <td><a class="btn waves-effect waves-light green accent-4" href="update.php?id=<?php echo $dados['id_user'];?>"> Adicionar Etnia</td>
+                        </tr>
+      
+                    </tbody>            
+                </table>                    
+            </div>                     
+        </div>
         <br><br><br><br>
 
         <!-- chamando o footer na pagina -->	

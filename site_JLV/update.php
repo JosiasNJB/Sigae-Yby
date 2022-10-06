@@ -94,19 +94,19 @@
 				<div class="row">
 					
 					<div class="input-field col s5">
-						<input id="nome" type="text" class="validate" name="nome">
+						<input id="nome" type="text" class="validate" name="nome" placeholder=" ">
 						<label for="nome">Nome</label>
 					</div>
 
 					<div class="input-field col s5 pull-s1">
-						<input id="email" type="text" class="validate" name="email">
+						<input id="email" type="text" class="validate" name="email" placeholder="">
 						<label for="email">E-Mail</label>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="input-field col s10 pull-s1">
-						  <input id="senha" type="password" class="validate" name="senha">
+						  <input id="senha" type="password" class="validate" name="senha" placeholder="">
 						  <label for="textarea1">Senha</label>
 					</div>
 				</div>

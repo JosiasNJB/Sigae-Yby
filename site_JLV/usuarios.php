@@ -60,9 +60,6 @@
                             <td><?php echo $dados['nome'];?></td>
                             <td><?php echo $dados['email'];?></td>
                             <td><?php echo $dados['etnia'];?></td>
-                            <td><a class="btn waves-effect waves-light red darken-4" href="delete.php?id=<?php echo $dados['id_user'];?>"> Delete</td>
-
-                            <td><a class="btn waves-effect waves-light green accent-4" href="update.php?id=<?php echo $dados['id_user'];?>"> Update</td>
                         </tr>
 
                         
