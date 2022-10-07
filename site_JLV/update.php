@@ -18,12 +18,11 @@
 			$id2 = $_SESSION['id2'];
 			$sql2="SELECT * FROM user WHERE id_user = $id2;";
 			$resultado= mysqli_query($connect,$sql2);
-			$array = mysqli_fetch_array($resultado);
-			$placehname = $array[1];
-			$placehemail = $array[2];
+			$array2 = mysqli_fetch_array($resultado);
+			$placehname = $array2[1];
+			$placehemail = $array2[2];
 
-			if ($array[4] == "Preto"){
-				echo $array[4];
+			if ($array2[4] == "Preto"){
 				$preto = "checked = 'checked'";
 				$pardo = "";
 				$branco = "";
@@ -31,7 +30,7 @@
 				$outro = "";
 
 			}
-			elseif ($array[4] == "Pardo"){
+			elseif ($array2[4] == "Pardo"){
 				$preto = "";
 				$pardo = "checked = 'checked'";
 				$branco = "";
@@ -39,7 +38,7 @@
 				$outro = "";
 
 			}
-			elseif ($array[4] == "Branco"){
+			elseif ($array2[4] == "Branco"){
 				$preto = "";
 				$pardo = "";
 				$branco = "checked = 'checked'";
@@ -47,7 +46,7 @@
 				$outro = "";
 				
 			}
-			elseif ($array[4] == "Indigena"){
+			elseif ($array2[4] == "Indigena"){
 				$preto = "";
 				$pardo = "";
 				$branco = "";

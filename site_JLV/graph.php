@@ -7,7 +7,7 @@
             $resultado= mysqli_query($connect,$sql);
 			if (mysqli_num_rows($resultado)>0){
                 while($dados =mysqli_fetch_array($resultado)){
-                    $array[] = $dados[0];
+                    $graph[] = $dados[0];
 
                 }
             }
@@ -22,11 +22,11 @@
 
                 var data = google.visualization.arrayToDataTable([
                 ['Task', 'Hours per Day'],
-                ['Branco', <?php echo $array[0]; ?>],
-                ['Indigena', <?php echo $array[1]; ?>],
-                ['Outro', <?php echo $array[2]; ?>],
-                ['Pardo',<?php echo $array[3]; ?>],
-                ['Preto',   <?php echo $array[4]; ?>]
+                ['Branco', <?php echo $graph[0]; ?>],
+                ['Indigena', <?php echo $graph[1]; ?>],
+                ['Outro', <?php echo $graph[2]; ?>],
+                ['Pardo',<?php echo $graph[3]; ?>],
+                ['Preto',   <?php echo $graph[4]; ?>]
                 ]);
 
                 var options = {
