@@ -63,7 +63,7 @@
 		<div class="row">
 			<figure>
 				<div>
-					<a href="#"><img class="if" src="img/iflogo.png" alt="LogoIF"></a>
+					<a href="#"><img class="if" <?php echo $img; ?> alt="LogoIF"></a>
 				</div>
 		</figure>
 			

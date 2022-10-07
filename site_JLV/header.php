@@ -48,14 +48,16 @@
 				//diferenciando header para usuarios administradores
 				if($adm == '1'){
 					$admpag = "<li><a href='admpag.php'> Página do Administrador</a></li>";
+					$img ="src='img/iflogodark.png'";
 					
 				}
 				else{
 					$admpag = "";
+					$img = "src='img/iflogo.png'";
 				}
 
 				$perfil = "<li><a href='profile.php'> $nome </li>
-				<li><a href='profile.php'><img class='profile' src='img/iflogo.png' alt='LogoIF'></a></li>";
+				<li><a href='profile.php'><img class='profile' $img alt='LogoIF'></a></li>";
 				$dep = "<li><a href='depoimentos.php'>Depoimentos</a></li>";
 				$onoff = "";
 				$title = $nome;
