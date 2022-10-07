@@ -10,13 +10,13 @@
 
 				<a class="carousel-item" href="https://www.sinasefeifes.org.br/sinasefe-ifes-endossa-mocao-de-repudio-do-foneabi-sobre-decisao-da-direcao-geral-do-campus-serra/"><img src="img/repudio.png"></a>
 			
-				<a class="carousel-item"  href="sis.php" > <img  src="img/situacaoEco.png" ></a>
+				<a class="carousel-item"  href="graph.php" > <img  src="img/situacaoEco.png" ></a>
 			
-				<a class="carousel-item" href="etnia.php"><img src="img/etnia.png"></a>
+				<a class="carousel-item" href="graph.php"><img src="img/etnia.png"></a>
 			
-				<a class="carousel-item" href="desis.php"><img src="img/desistencia.png"></a>
+				<a class="carousel-item" href="graph.php"><img src="img/desistencia.png"></a>
 			
-				<a class="carousel-item" href="transp.php"><img src="img/transporte.png"></a>
+				<a class="carousel-item" href="graph.php"><img src="img/transporte.png"></a>
 
 			</div>	
 		</div>
