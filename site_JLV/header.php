@@ -5,7 +5,8 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 		<script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
 		<link rel="icon" type ="image/x-icon" href="img/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 
@@ -53,9 +54,9 @@
 					$admpag = "";
 				}
 
-				$perfil = "<li><a href='profile.php'> $nome </a></li>";
+				$perfil = "<li><a href='profile.php'> $nome </li>
+				<li><a href='profile.php'><img class='profile' src='img/iflogo.png' alt='LogoIF'></a></li>";
 				$dep = "<li><a href='depoimentos.php'>Depoimentos</a></li>";
-				$logout = "<li><a href='logout.php'>Log out</a></li>";
 				$onoff = "";
 				$title = $nome;
 
@@ -64,7 +65,6 @@
 			else{
 				$perfil = "";
 				$dep = "";
-				$logout = "";
 				$onoff = "<li><a href='login.php'>Login</a></li>";
 				$title = "Yby";
 			}
@@ -88,7 +88,7 @@
 			</figure> 
 			
 			<!-- header com php para diferenciar se o usuario esta logado ou nao -->
-			<div class="menu">
+			<div class="menu valign-wrapper">
 
 				<li><a href="index.php">Home</a></li>
 				<!-- <li><a href="sobre.php">Sobre</a></li> -->
@@ -103,7 +103,6 @@
 				<?php echo $dep; ?>
 				<?php echo $onoff; ?>
 				<?php echo $admpag; ?>
-				<?php echo $logout; ?>
 				<?php echo $perfil; ?>
 				
 				

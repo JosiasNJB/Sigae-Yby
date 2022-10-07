@@ -1,118 +1,158 @@
 
 		<?php
+
+			//chamando o arquivo de conexao
+			require 'conexao.php';
+			
 			//chamando o header na pagina	
 			include_once 'header.php';
-		?>
-		<!-- maybe an image for a student and one for a teacher so we can properly differentiate the both-->
 
-		<h3>Manifesto</h3>
+			$sql="SELECT * FROM user WHERE id_user = $id;";
+			$resultado= mysqli_query($connect,$sql);
+			$array = mysqli_fetch_array($resultado);
+			$nome = $array[1];
+			$email = $array[2];
+			$etnia = $array[4];
 			
-			
-		<br>
-		
-		
-		<!-- Texto de manifesto | em desenvolvimento -->
-		<p class="manifesto">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-			At quis risus sed vulputate odio ut enim. Nunc lobortis mattis aliquam faucibus purus in massa tempor. 
-			Faucibus a pellentesque sit amet porttitor eget dolor morbi non. 
-			Amet venenatis urna cursus eget nunc scelerisque viverra. Et tortor at risus viverra adipiscing. 
-			Mollis aliquam ut porttitor leo. Eu augue ut lectus arcu bibendum at varius vel. 
-			At elementum eu facilisis sed odio morbi quis. 
-			Sodales ut etiam sit amet nisl purus in. Dictumst quisque sagittis purus sit. 
-			Pharetra massa massa ultricies mi quis hendrerit dolor magna. 
-			Donec adipiscing tristique risus nec feugiat in fermentum posuere urna. 
-			Tempor orci eu lobortis elementum nibh tellus molestie nunc. 
-			Ornare arcu dui vivamus arcu felis bibendum ut. 
-			Arcu odio ut sem nulla pharetra.
-			<br>
-			Malesuada proin libero nunc consequat interdum varius sit amet mattis. 
-			Nisl condimentum id venenatis a condimentum. Eget nullam non nisi est. 
-			In cursus turpis massa tincidunt dui ut. Ut morbi tincidunt augue interdum velit. 
-			Neque egestas congue quisque egestas diam. Dolor magna eget est lorem ipsum dolor sit. 
-			Eget velit aliquet sagittis id consectetur. 
-			Viverra maecenas accumsan lacus vel facilisis volutpat. 
-			Purus in massa tempor nec feugiat nisl pretium fusce. 
-			Mattis aliquam faucibus purus in massa. 
-			Imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada. 
-			Dolor morbi non arcu risus quis varius quam. 
-			Interdum consectetur libero id faucibus nisl tincidunt eget nullam non. 
-			Enim sit amet venenatis urna cursus eget nunc. 
-			Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. 
-			Nunc id cursus metus aliquam eleifend mi. 
-			Adipiscing commodo elit at imperdiet dui accumsan sit. 
-			Vulputate mi sit amet mauris commodo quis.
-			<br><br><br><br>
-		</p>
+			//isset determina que o botao foi ativado.
+			if(isset($_POST['btn_D'])){
 
+				//inicializando array de erros
+				$erros = array();
 
-		<h3>Quem Somos</h3>
+				//obtendo os valores dos formularios via post
+				$tema=$_POST['tema'];
+				$grupo=$_POST['grupo'];
+				$dep=$_POST['dep'];
 
-		<br>
+				//preenchendo o array de erros
+				if(empty($tema)){
+					$erros[] = "<li>O campo tema precisa ser preenchido</li>";
+				}
+
+				if(empty($grupo)){
+					$erros[] = "<li>O campo grupo precisa ser preenchido</li>";
+				}
+
+				if(empty($dep)){
+					$erros[] = "<li>O campo departamento precisa ser preenchido</li>";
+				}
+
+				if(empty($erros)){
+
+					//Sql query para inserir os valores obtidos na tabela 		
+					$sql = "INSERT INTO depoimentos(tema, grupo, dep) VALUES('$tema', '$grupo', '$dep');";
+					
+					/*Msqli_query aplica a string "$sql"
+					e se o insert for devidamente realizado header direciona o usuario para a pagina de inicio.
+					*/ 
+					if (mysqli_query($connect, $sql)){
+						header('location: depoimentos.php');
+					}
+					else{
+						header('location: profile.php');
+					}
+				
+				}
+				
+			}
+
+		?>	
+		<h2>Pagina de Perfil</h2>
+		<br><br><br>
 		<div class="row">
 			<figure>
-				<div class="container">
-					<a href="#"><img class="borba" src="img/borba.jpeg" alt="borba"></a>
+				<div>
+					<a href="#"><img class="if" src="img/iflogo.png" alt="LogoIF"></a>
 				</div>
-			</figure>
+		</figure>
 			
-			<p>
-				<br><br><br>   
-				<b>Yby</b> significa "o chão que se pisa" na língua Tupi Guarani. Acreditamos que escolher um nome originário da nossa terra apresente um ato simbólico e potente. 
-				Desde a chegada dos invasores em 1500, os nativos dessa terra sofrem com o extermínio físico e cultural.
-				Depois de vários séculos, formou-se uma sociedade baseada no controle, que segue dominando os menos favorecidos.
-				O modelo educacional insuficiente, a alimentação precária e as forças de segurança a fim de suprimir qualquer revolta, são essenciais para que a constituição não seja cumprida.
-				Nosso objetivo primordial com esse projeto é devolver (nem que 1%) para a parcela da sociedade parte dos direitos a que foram negados.
-			</p>
+			<h5>
+				<br><br><br>
+				<?php
+					echo "$nome <br>";
+					echo "$email<br>";
+					echo "$etnia <br>";
+
+
+				?>
+
+
+			
+			</h5>	
+			
+
 		</div>
+		<br><br>
+		<p class="center"><a class="btn waves-effect waves-light red darken-4" href="logout.php">Log Out</a></p>
 
-		<br>
-		
-		<section>
-			<h3>O Projeto</h3>
-			<p>Tivemos a ideia de criar um sistema que receba diversos dados relevantes e que ao fim entregue 
-				aos neabis relatórios e conclusões de cunho social.
-			</p>
+	
+		<br><br><br><br>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis venenatis orci sed feugiat. Integer finibus justo eu nisi vestibulum venenatis. Duis eu consectetur justo. 
+			Nullam consequat leo vel iaculis porttitor. Etiam laoreet at tortor id bibendum. Nulla bibendum enim risus, sit amet molestie sem feugiat et. 
+			Sed aliquet purus laoreet nisl varius, in condimentum lorem dictum. Praesent viverra laoreet augue ut venenatis. In pulvinar eu quam quis suscipit. Nulla id felis a ipsum faucibus euismod. 
+			Integer at pretium turpis, sit amet molestie nunc. <br>
 
-			<h3>O NEABI</h3>
-			<p>
-				O acrônimo NEABI vem de "Núcleo de estudos afro-brasileiros e indígenas", 
-				tem como propósito fundamental a discussão de temas de raça, possibilitando a reflexão de diversos grupos dentro dos 
-				Institutos Federais.
-			</p>
-
-		</section>
-
-		<h3>Nós</h3>
-
-		<p class="centerp">
-
-			<b>Alunos | Idealizadores</b><br>
-
-			Larissa Kemile Pereira da Silva <br>
-			Josias Neves Jardim Borba <br>
-			Vitória Isabel Lemos de Mattos <br>
-			<br>
-			
-			<b>Professores e Colaboradores Ativos:</b><br>
-			
-			Ana Paula Klauck - Literatura e Língua Portuguesa<br>
-			Carlos Lins Borges Azevedo - Desenvolvimento de Sistemas<br>
-			Diego Ramiro Araoz Alves - Sociologia<br>
-			Moisés Savedra Omena - Projeto Integrador<br>
-			
-			<br>
-			
-			<b>Agradecimentos especiais:</b><br>
-			
-			Alessandra Aguiar Vilarinho - Programação II e Feedbacks<br>
-			Daniel Ribeiro Trindade - Dispositivos Móveis<br>
-			Martha Talita - Programação Web II<br>
-			Paulo Cézar Camargo Guedes - Matemática<br>
-			Lívia de Azevedo Silveira Rangel - História II<br>
-		
-			<br>
 		</p>
+		<br><br><br>
 
+	
+		<!-- A tag <section> para marcar as seções de conteúdo de uma página.-->
+		<section>
+			<h3>Depoimento</h3>
+			<br><br>
+
+			<!-- Resumidamente, tag <form> possibilita que trabalhemos com formulários.-->
+				
+			<form method="post">
+				<div class="row">
+					<div class="input-field col s4">
+						<input id="tema" type="text" class="validate" name="tema">
+						<label for="tema">Tema:</label>
+					</div>
+
+					<div class="input-field col s4 pull-s2">
+						<input id="grupo" type="text" class="validate" name="grupo">
+						<label for="grupo">Grupo a que pertence:</label>
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="input-field col s8 pull-s2">
+						<textarea id="textarea1" class="materialize-textarea" name="dep"></textarea>
+						<label for="textarea1">Seu Depoimento:</label>
+					</div>
+
+				</div>
+
+				<br>
+				<br>
+
+				<div class="btnSubmit">
+					<button class="btn waves-effect waves-light" type="submit" name="btn_D"> Enviar</button>
+					
+				</div>
+
+				<br>
+
+				<div>
+					<ul>
+						<?php
+							//imprimindo os erros
+							if(!empty($erros)){
+								foreach($erros as $erro){
+									echo $erro;
+
+								}
+							}
+						?>
+					</ul>
+				</div>
+
+				<br>
+			</form>
+		</section>
 		<!-- chamando o footer na pagina -->	
-		<?php include_once 'footer.php';?>			
+		<?php include_once 'footer.php';?>	

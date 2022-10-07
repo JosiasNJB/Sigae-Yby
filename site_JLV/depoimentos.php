@@ -1,114 +1,74 @@
 
-		<?php
+        <?php 
+        //chamando o header na pagina	
+        include_once 'header.php';
 
-			//chamando o arquivo de conexao
-			require 'conexao.php';
-			
-			//isset determina que o botao foi ativado.
-			if(isset($_POST['btn_D'])){
+		//iniciando a sessao caso ainda nao haja uma inicializada
+		if (session_status() === PHP_SESSION_NONE) {
+			session_start();
+		}
 
-				//inicializando array de erros
-				$erros = array();
-
-				//obtendo os valores dos formularios via post
-				$tema=$_POST['tema'];
-				$grupo=$_POST['grupo'];
-				$dep=$_POST['dep'];
-
-				//preenchendo o array de erros
-				if(empty($tema)){
-					$erros[] = "<li>O campo tema precisa ser preenchido</li>";
-				}
-
-				if(empty($grupo)){
-					$erros[] = "<li>O campo grupo precisa ser preenchido</li>";
-				}
-
-				if(empty($dep)){
-					$erros[] = "<li>O campo departamento precisa ser preenchido</li>";
-				}
-
-				if(empty($erros)){
-
-					//Sql query para inserir os valores obtidos na tabela 		
-					$sql = "INSERT INTO depoimentos(tema, grupo, dep) VALUES('$tema', '$grupo', '$dep');";
-					
-					/*Msqli_query aplica a string "$sql"
-					e se o insert for devidamente realizado header direciona o usuario para a pagina de inicio.
-					*/ 
-					if (mysqli_query($connect, $sql)){
-						header('location: index.php');
-					}
-					else{
-						header('location: depoimentos.php');
-					}
-				
-				}
-				
-			}
-
-			//chamando o header na pagina	
-			include_once 'header.php';
-
-		?>	
+		//chamando o arquivo de conexao
+		require 'conexao.php';
 		
-		<!-- A tag <section> para marcar as seções de conteúdo de uma página.-->
-		<section>
-			<h3>Depoimentos</h3>
-			<br><br>
+		//sql query como uma string selecionando todos os dados dos depoimentos na tabela
+		$sql="SELECT * FROM depoimentos";
 
-			<!-- Resumidamente, tag <form> possibilita que trabalhemos com formulários.-->
-				
-			<form method="post">
-				<div class="row">
-					<div class="input-field col s5">
-						<input id="tema" type="text" class="validate" name="tema">
-						<label for="tema">Tema:</label>
-					</div>
+		/* Está retornando, de dentro da tabela representada pela variável "$connect",
+		um array que contém todos os resultados que atendem aos requisitos da consulta
+		dentro de "$sql".
+		*/
+		$resultado= mysqli_query($connect,$sql);
+        ?>
 
-					<div class="input-field col s5 pull-s1">
-						<input id="grupo" type="text" class="validate" name="grupo">
-						<label for="grupo">Grupo a que pertence:</label>
-					</div>
+        <br><br>
 
+
+
+        <h3 class="light"> Depoimentos </h3>
+
+        <br><br><br><br>
+
+
+		<table class="depoimento">
+			<?php
+			    /* Enquanto o array que contém os resultados da consulta tiver pelo menos 1 index,
+				"$dados" irá buscar um array contendo os dados do index.
+                */
+                if (mysqli_num_rows($resultado)>0){
+                     while($dados =mysqli_fetch_array($resultado)){
+						$tema = $dados['tema'];
+						$grupo = $dados['grupo'];
+						$dep = $dados['dep']
+          
+            ?>
+			
+			<thead>
+				<tr>
+					<th> <?php echo "$tema &nbsp-&nbsp $grupo";?></th>
+				</tr>
+			</thead>
+			<tbody>
+				<div class="dep">
+					<tr>
+
+						<td> 
+							<?php
+								echo "<p class='center'> $dep </p>";
+							?>
+						</td>
+
+					</tr>
 				</div>
+				<?php
+						}
+					}
+				?>
+			</tbody>
 
-				<div class="row">
-					<div class="input-field col s10 pull-s1">
-						<textarea id="textarea1" class="materialize-textarea" name="dep"></textarea>
-						<label for="textarea1">Seu Depoimento:</label>
-					</div>
+		</table>
+   
+        <br><br><br><br>
 
-				</div>
-
-				<br>
-				<br>
-
-				<div class="btnSubmit">
-					<button class="btn waves-effect waves-light" type="submit" name="btn_D"> Enviar</button>
-					
-				</div>
-
-				<br>
-
-				<div>
-					<ul>
-						<?php
-							//imprimindo os erros
-							if(!empty($erros)){
-								foreach($erros as $erro){
-									echo $erro;
-
-								}
-							}
-						?>
-					</ul>
-				</div>
-
-				<br>
-
-			</form>
-		</section>
-
-		<!-- chamando o footer na pagina -->	
-		<?php include_once 'footer.php';?>	
+        <!-- chamando o footer na pagina -->	
+        <?php include_once 'footer.php';?>                        

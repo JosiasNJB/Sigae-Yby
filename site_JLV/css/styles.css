@@ -105,6 +105,15 @@
 		text-align: justify;
 
 	}
+
+	.depoimento {
+		max-width: 100px;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: justify;
+		word-wrap: break-word
+
+	}
 	
 	/* imagem do Borba Gato */
 	img.borba {
@@ -118,6 +127,21 @@
 		width: 700px;
 		height: 500px;
 	}
+
+	img.if{
+		width: 300px;
+		height: 300px;
+
+
+	}
+
+	img.profile{
+		width: 50px;
+		height: 50px;
+
+
+	}
+
 	
 	table {
 		margin-left: auto;

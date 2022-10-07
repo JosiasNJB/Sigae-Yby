@@ -15,6 +15,56 @@
 
 			}
 
+			$id2 = $_SESSION['id2'];
+			$sql2="SELECT * FROM user WHERE id_user = $id2;";
+			$resultado= mysqli_query($connect,$sql2);
+			$array = mysqli_fetch_array($resultado);
+			$placehname = $array[1];
+			$placehemail = $array[2];
+
+			if ($array[4] == "Preto"){
+				echo $array[4];
+				$preto = "checked = 'checked'";
+				$pardo = "";
+				$branco = "";
+				$indigena = "";
+				$outro = "";
+
+			}
+			elseif ($array[4] == "Pardo"){
+				$preto = "";
+				$pardo = "checked = 'checked'";
+				$branco = "";
+				$indigena = "";
+				$outro = "";
+
+			}
+			elseif ($array[4] == "Branco"){
+				$preto = "";
+				$pardo = "";
+				$branco = "checked = 'checked'";
+				$indigena = "";
+				$outro = "";
+				
+			}
+			elseif ($array[4] == "Indigena"){
+				$preto = "";
+				$pardo = "";
+				$branco = "";
+				$indigena = "checked = 'checked'";
+				$outro = "";
+				
+			}
+			else{
+				$preto = "";
+				$pardo = "";
+				$branco = "";
+				$indigena = "";
+				$outro = "checked = 'checked'";
+
+				
+			}
+
 			//Isset determina que os campos do formulario nao sao nulos.
 			if(isset($_POST['btn_Send'])){
 
@@ -22,7 +72,6 @@
 				$erros = array();
 
 				//Criando e atribuindo às respectivas variaveis os valores inseridos nos campos do formulario.
-				$id2 = $_SESSION['id2'];
 				$nome=$_POST['nome'];
 				$email=$_POST['email'];
 				$senha = $_POST['senha'];
@@ -94,19 +143,19 @@
 				<div class="row">
 					
 					<div class="input-field col s5">
-						<input id="nome" type="text" class="validate" name="nome" placeholder=" ">
+						<input id="nome" type="text" class="validate" name="nome" value="<?php echo $placehname; ?> ">
 						<label for="nome">Nome</label>
 					</div>
 
 					<div class="input-field col s5 pull-s1">
-						<input id="email" type="text" class="validate" name="email" placeholder="">
+						<input id="email" type="text" class="validate" name="email" value="<?php echo $placehemail; ?>">
 						<label for="email">E-Mail</label>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="input-field col s10 pull-s1">
-						  <input id="senha" type="password" class="validate" name="senha" placeholder="">
+						  <input id="senha" type="password" class="validate" name="senha">
 						  <label for="textarea1">Senha</label>
 					</div>
 				</div>
@@ -121,35 +170,35 @@
 	
 					<p class="centerp">
 						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="Preto"/>
+						  <input class="with-gap" name="etnia" type="radio" value="Preto" <?php echo $preto; ?>/>
 						  <span>Preto</span>
 						</label>
 					</p>
 	
 					<p class="centerp">
 						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="Pardo" />
+						  <input class="with-gap" name="etnia" type="radio" value="Pardo" <?php echo $pardo; ?> />
 						  <span>Pardo</span>
 						</label>
 					</p>
 	
 					<p class="centerp">
 						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="Branco" />
+						  <input class="with-gap" name="etnia" type="radio" value="Branco" <?php echo $branco; ?> />
 						  <span>Branco</span>
 						</label>
 					</p>
 
                     <p class="centerp">
 						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="Indigena" />
+						  <input class="with-gap" name="etnia" type="radio" value="Indigena" <?php echo $indigena; ?> />
 						  <span>Indígena</span>
 						</label>
 					</p>
 	
 					<p class="centerp">
 						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="Outro"/>
+						  <input class="with-gap" name="etnia" type="radio" value="Outro" <?php echo $outro;?> />
 						  <span>Outro</span>
 						</label>
 					</p>
