@@ -3,7 +3,7 @@
             //chamando o header na pagina	
             include_once 'header.php';
 
-            $sql = "SELECT count(etnia) from user group by etnia;";
+            $sql = "SELECT count(etnia) from pessoa group by etnia;";
             $resultado= mysqli_query($connect,$sql);
 			if (mysqli_num_rows($resultado)>0){
                 while($dados =mysqli_fetch_array($resultado)){

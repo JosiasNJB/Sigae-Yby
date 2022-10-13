@@ -4,6 +4,16 @@
 			//chamando o arquivo de conexao
 			require 'conexao.php';
 
+			$sqlid='SELECT * from pessoa;';
+			$resultado= mysqli_query($connect,$sqlid);
+			if (mysqli_num_rows($resultado)>0){
+				$idpessoa = mysqli_num_rows($resultado);
+
+			}
+			else{
+				$idpessoa = '0';
+			}
+
 			//isset determina que o botao foi ativado.
 			if(isset($_POST['btn_Send'])){
 
@@ -60,7 +70,7 @@
 					$senha=md5($senha);
 					
 					//Sql query para inserir os valores obtidos na tabela
-					$sql="INSERT INTO user(nome, email, senha, etnia, adm) VALUES('$nome', '$email', '$senha', '$etnia', '1');";
+					$sql="INSERT INTO pessoa(id_pessoa, nome, email, senha, FK_ETNIA_id_etnia, adm) VALUES('$idpessoa', '$nome', '$email', '$senha', '$etnia', '1');";
 					
 					/*Msqli_query aplica a string "$sql"
 					e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
@@ -69,7 +79,7 @@
 						header('location: login.php');
 					}
 					else{
-						header('location: cadastro.php');
+						header('location: admcadastro.php');
 					}
 				}
 			}
@@ -90,8 +100,8 @@
 				<!-- <div> é a tag usada para dividir e organizar o documento -->
 				<div class="row">
 					<div class="input-field col s10 pull-s1">
-						  <input id="senha" type="password" class="validate" name="admsenha">
-						  <label for="textarea1">Senha de administrador</label>
+						  <input id="admsenha" type="password" class="validate" name="admsenha">
+						  <label for="admsenha">Senha de administrador</label>
 					</div>
 				</div>
 
@@ -124,36 +134,36 @@
 	
 					<p class="centerp">
 						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="Preto"/>
+						  <input class="with-gap" name="etnia" type="radio" value="1"/>
 						  <span>Preto</span>
 						</label>
 					</p>
 	
 					<p class="centerp">
 						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="Pardo" />
+						  <input class="with-gap" name="etnia" type="radio" value="2" />
 						  <span>Pardo</span>
 						</label>
 					</p>
 	
 					<p class="centerp">
 						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="Branco" />
+						  <input class="with-gap" name="etnia" type="radio" value="3" />
 						  <span>Branco</span>
 						</label>
 					</p>
 
                     <p class="centerp">
 						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="Indigena" />
+						  <input class="with-gap" name="etnia" type="radio" value="4" />
 						  <span>Indígena</span>
 						</label>
 					</p>
 	
 					<p class="centerp">
 						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="Outro"/>
-						  <span>Outro</span>
+						  <input class="with-gap" name="etnia" type="radio" value="5"/>
+						  <span>Amarelo</span>
 						</label>
 					</p>
 				</div>

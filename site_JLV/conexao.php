@@ -4,7 +4,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "usbw";
-    $db_name = "banco_neabi";
+    $db_name = "banco_projetointegrador";
 
     //abrindo a conexao com o banco de dados
     $connect = mysqli_connect($servername, $username, $password, $db_name);

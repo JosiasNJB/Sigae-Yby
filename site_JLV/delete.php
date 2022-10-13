@@ -15,9 +15,11 @@
 
     $req = $_SESSION['id2'];
 
-    $sql = "DELETE FROM user WHERE id_user = $req";
+    $sql = "DELETE FROM pessoa WHERE id_pessoa = $req";
+    $sql2 = "DELETE FROM aluno WHERE FK_PESSOA_id_pessoa = $req";
 
     $del = mysqli_query($connect, $sql);
+    $del2 = mysqli_query($connect, $sql2);
 
     mysqli_close($connect);
 

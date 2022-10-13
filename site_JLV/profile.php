@@ -7,7 +7,7 @@
 			//chamando o header na pagina	
 			include_once 'header.php';
 
-			$sql="SELECT * FROM user WHERE id_user = $id;";
+			$sql="SELECT * FROM pessoa WHERE id_pessoa = $id;";
 			$resultado= mysqli_query($connect,$sql);
 			$array = mysqli_fetch_array($resultado);
 			$nome = $array[1];

@@ -12,7 +12,7 @@
 		require 'conexao.php';
 		
 		//sql query como uma string selecionando todos os dados dos depoimentos na tabela
-		$sql="SELECT * FROM depoimentos";
+		$sql="SELECT * FROM depoimento";
 
 		/* Está retornando, de dentro da tabela representada pela variável "$connect",
 		um array que contém todos os resultados que atendem aos requisitos da consulta
@@ -25,7 +25,7 @@
 
 
 
-        <h3 class="light"> Depoimentos </h3>
+        <h3 class="light"> Depoimentos de alunos</h3>
 
         <br><br><br><br>
 
@@ -39,7 +39,7 @@
                      while($dados =mysqli_fetch_array($resultado)){
 						$tema = $dados['tema'];
 						$grupo = $dados['grupo'];
-						$dep = $dados['dep']
+						$dep = $dados['descdep']
           
             ?>
 			

@@ -130,6 +130,33 @@
 			<br>
 		</p>
 
+		<p>
+					<h3>Fale Conosco!</h3>
+
+					<p class="centerp">
+						Email: nomefalso@Brasil_TerraIndígena.com<br>
+						Telefone: +45 666666-666<br>
+						Instagram do Neabi: <a href="https://www.instagram.com/neabi.serra/">https://www.instagram.com/neabi.serra/</a>
+					</p>
+
+				</p>
+
+				<br>
+
+				<h3>Fale com o Campus Serra! </h3>
+				
+				<p class="centerp">
+					Site official: <a href="https://serra.ifes.edu.br/">https://serra.ifes.edu.br/</a>
+				</p>
+
+				<br>
+				<br>
+
+				<p class="centerp">Encontre mais informações aqui: <a href="https://ifes.edu.br/noticias/2-uncategorised/19345-contatos-dos-neabi-no-ifes">https://ifes.edu.br/noticias/2-uncategorised/19345-contatos-dos-neabi-no-ifes<a></p>
+
+				<br>
+				<br>
+
 		<figure>
 			<div class="container">
 				<a href="#"><img class="anonGrey" src="img/anonGrey.png" alt="anon"></a>

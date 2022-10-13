@@ -26,6 +26,9 @@
 			}
 
 			$admpag = "";
+			$adm = "";
+			$dep = "";
+			$aluno = "";
 
 			if($_SESSION['logado'] == true){
 
@@ -33,7 +36,7 @@
 				$id = $_SESSION['idu'];
 
 				//sql query para obter nome e identificador de adm do usuario 
-				$sql = "SELECT nome, adm from user where id_user = $id;";
+				$sql = "SELECT nome, adm from pessoa where id_pessoa = $id;";
 
 				//Msqli_query aplica a string "$sql"
 				$resultado = mysqli_query($connect, $sql);
@@ -48,17 +51,20 @@
 				//diferenciando header para usuarios administradores
 				if($adm == '1'){
 					$admpag = "<li><a href='admpag.php'> Página do Administrador</a></li>";
+					$dep = "<li><a href='depoimentos.php'>Depoimentos</a></li>";
+					$aluno = "<li><a href='alunos.php'> Alunos </a></li>";
 					$img ="src='img/iflogodark.png'";
 					
 				}
 				else{
 					$admpag = "";
+					$dep = "";
+					$aluno = "";
 					$img = "src='img/iflogo.png'";
 				}
 
 				$perfil = "<li><a href='profile.php'> $nome </li>
 				<li><a href='profile.php'><img class='profile' $img alt='LogoIF'></a></li>";
-				$dep = "<li><a href='depoimentos.php'>Depoimentos</a></li>";
 				$onoff = "";
 				$title = $nome;
 
@@ -66,7 +72,6 @@
 			//diferenciando o header caso o usuario nao esteja logado
 			else{
 				$perfil = "";
-				$dep = "";
 				$onoff = "<li><a href='login.php'>Login</a></li>";
 				$title = "Yby";
 			}
@@ -97,12 +102,14 @@
 				
 				<!--<li><a href="contato.php">Contato</a></li>-->
 				<!-- Repurpose depoimentos.php into showing the depoimentos stored in the database
-				maybe make another page that only shows up when the user is logged in to make the depoimentos meant to be stored
-				maybe make a personal user page where you can do the depoimentos and it shows user info
+				maybe make another page that only shows up when the pessoa is logged in to make the depoimentos meant to be stored
+				maybe make a personal pessoa page where you can do the depoimentos and it shows pessoa info
 				and from there you'd be able to log off and alter your own data like on the update page-->
 				<li><a href="graph.php">Gráficos</a></li>
-				<li><a href="usuarios.php">Usuários</a></li>
+				<!-- <li><a href="usuarios.php">Usuários</a></li> -->
+				<li><a href='eventos.php'> Eventos</a></li>
 				<?php echo $dep; ?>
+				<?php echo $aluno; ?>
 				<?php echo $onoff; ?>
 				<?php echo $admpag; ?>
 				<?php echo $perfil; ?>

@@ -3,7 +3,26 @@
 
 			//chamando o arquivo de conexao
 			require 'conexao.php';
+			
+			$sqlid='SELECT * from pessoa;';
+			$resultado= mysqli_query($connect,$sqlid);
+			if (mysqli_num_rows($resultado)>0){
+				$idpessoa = mysqli_num_rows($resultado);
 
+			}
+			else{
+				$idpessoa = '0';
+			}
+			$sqlidaluno='SELECT * from aluno;';
+			$resultadoaluno= mysqli_query($connect,$sqlidaluno);
+			if (mysqli_num_rows($resultadoaluno)>0){
+				$idaluno = mysqli_num_rows($resultadoaluno);
+				//echo $idaluno;
+
+			}
+			else{
+				$idaluno = '0';
+			}
 			//isset determina que o botao foi ativado.
 			if(isset($_POST['btn_Send'])){
 
@@ -13,6 +32,7 @@
 				//obtendo os valores dos formularios via post
 				$nome=$_POST['nome'];
 				$email=$_POST['email'];
+				$matricula = $_POST['matricula'];
 				$senha = $_POST['senha'];
 
 				//preenchendo o array de erros
@@ -28,6 +48,10 @@
 					if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 						$erros[] = "<li>O campo email precisa ser preenchido corretamente</li>";
 					}
+				}
+				
+				if(empty($matricula)){
+					$erros[] = "<li>O campo matricula precisa ser preenchido</li>";
 				}
 
 				if(empty($senha)){
@@ -50,13 +74,17 @@
 					$senha=md5($senha);
 
 					//Sql query para inserir os valores obtidos na tabela 
-					$sql="INSERT INTO user(nome, email, senha, etnia, adm) VALUES('$nome', '$email', '$senha', '$etnia', '0');";
-					
+					$sql="INSERT INTO pessoa(id_pessoa, nome, email, senha, FK_ETNIA_id_etnia, adm) VALUES('$idpessoa', '$nome', '$email', '$senha', '$etnia', '0');";
+
+		
 					/*Msqli_query aplica a string "$sql"
 					e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
 					*/ 
 					if (mysqli_query($connect, $sql)){
-						header('location: login.php');
+						$sqlaluno="INSERT INTO aluno(id_aluno, FK_PESSOA_id_pessoa, matricula) VALUES('$idaluno', '$idpessoa', '$matricula');";
+						if(mysqli_query($connect, $sqlaluno)){
+							header('location: cadastro.php');
+						}
 					}
 					else{
 						header('location: cadastro.php');
@@ -90,6 +118,13 @@
 						<label for="email">E-Mail</label>
 					</div>
 				</div>
+				<div class="row">
+					<div class="input-field col s10 pull-s1">
+
+						  <input id="matricula" type="text" class="validate" name="matricula">
+						  <label for="matricula">Matricula</label>
+					</div>
+				</div>
 
 				<div class="row">
 					<div class="input-field col s10 pull-s1">
@@ -109,39 +144,40 @@
 	
 					<p class="centerp">
 						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="Preto"/>
+						  <input class="with-gap" name="etnia" type="radio" value="1"/>
 						  <span>Preto</span>
 						</label>
 					</p>
 	
 					<p class="centerp">
 						<label>
-						  <input class="with-gap pull-s1" name="etnia" type="radio" value="Pardo" />
+						  <input class="with-gap pull-s1" name="etnia" type="radio" value="2" />
 						  <span>Pardo</span>
 						</label>
 					</p>
 	
 					<p class="centerp">
 						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="Branco" />
+						  <input class="with-gap" name="etnia" type="radio" value="3" />
 						  <span>Branco</span>
 						</label>
 					</p>
 
                     <p class="centerp">
 						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="Indigena" />
+						  <input class="with-gap" name="etnia" type="radio" value="4" />
 						  <span>Indígena</span>
 						</label>
 					</p>
 	
 					<p class="centerp">
 						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="Outro"/>
+						  <input class="with-gap" name="etnia" type="radio" value="5"/>
 						  <span>Outro</span>
 						</label>
 					</p>
 				</div>
+
 
 				<br>
 
