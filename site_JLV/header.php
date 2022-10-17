@@ -26,6 +26,7 @@
 			}
 
 			$admpag = "";
+			$altdados = "";
 			$adm = "";
 			$dep = "";
 			$aluno = "";
@@ -51,6 +52,7 @@
 				//diferenciando header para usuarios administradores
 				if($adm == '1'){
 					$admpag = "<li><a href='admpag.php'> Página do Administrador</a></li>";
+					$altdados = "<li><a href='dados.php'> Alterar Dados</a></li>";
 					$dep = "<li><a href='depoimentos.php'>Depoimentos</a></li>";
 					$aluno = "<li><a href='alunos.php'> Alunos </a></li>";
 					$img ="src='img/iflogodark.png'";
@@ -58,6 +60,7 @@
 				}
 				else{
 					$admpag = "";
+					$altdados = "";
 					$dep = "";
 					$aluno = "";
 					$img = "src='img/iflogo.png'";
@@ -112,6 +115,7 @@
 				<?php echo $aluno; ?>
 				<?php echo $onoff; ?>
 				<?php echo $admpag; ?>
+				<?php echo $altdados; ?>
 				<?php echo $perfil; ?>
 				
 				

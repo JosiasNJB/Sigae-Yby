@@ -11,9 +11,9 @@
 		//chamando o arquivo de conexao
 		require 'conexao.php';
 		
-		//sql query como uma string selecionando todos os dados dos eventos na tabela
-		$sqlpublic="SELECT * FROM eventos where eventstatus = 0";
-        $sqlprivate="SELECT * FROM eventos where eventstatus = 1";
+		//sql query como uma string selecionando todos os dados dos evento na tabela
+		$sqlpublic="SELECT * FROM evento where eventstatus = 0";
+        $sqlprivate="SELECT * FROM evento where eventstatus = 1";
 
 		/* Está retornando, de dentro da tabela representada pela variável "$connect",
 		um array que contém todos os resultados que atendem aos requisitos da consulta
