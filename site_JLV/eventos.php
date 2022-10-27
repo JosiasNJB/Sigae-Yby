@@ -59,12 +59,12 @@
 			
 			<thead>
 				<tr>
-					<th> <?php echo "$eventname &nbsp-&nbsp $tema";?></th>
+					<th class="titlerelat"> <?php echo "$eventname &nbsp-&nbsp $tema";?></th>
 				</tr>
 			</thead>
 			<tbody>
-				<div class="dep">
-					<tr>
+				<div >
+					<tr class="bodyrelat">
 
 						<td> 
 							<?php
@@ -102,13 +102,13 @@
             ?>
 			
 			<thead>
-				<tr>
+				<tr class="titlerelat">
 					<th> <?php echo "$eventname &nbsp-&nbsp $tema";?></th>
 				</tr>
 			</thead>
 			<tbody>
-				<div class="dep">
-					<tr>
+				<div>
+					<tr class="bodyrelat">
 
 						<td> 
 							<?php

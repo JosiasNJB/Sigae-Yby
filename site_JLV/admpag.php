@@ -13,6 +13,17 @@
 			$email = $array[2];
 			$etnia = $array[4];
             */
+
+			$sqlidevent='SELECT * from evento;';
+			$resultadoevent= mysqli_query($connect,$sqlidevent);
+			if (mysqli_num_rows($resultadoevent)>0){
+				$idevent = mysqli_num_rows($resultadoevent);
+	
+			}
+			else{
+				$idevent = '0';
+			}
+
             if(isset($_POST['btn_Send'])){
 
 				//inicializando array de erros
@@ -152,9 +163,10 @@
 				}
 
 				if(empty($errosevent)){
+					
 
 					//Sql query para inserir os valores obtidos na tabela 		
-					$eventsql = "INSERT INTO eventos(eventnom, tema, descevent, eventstatus) VALUES('$event', '$tipevent', '$descevent', '$statusevent');";
+					$eventsql = "INSERT INTO evento(id_evento, eventnom, tema, descevent, eventstatus) VALUES('$idevent', '$event', '$tipevent', '$descevent', '$statusevent');";
 					
 					/*Msqli_query aplica a string "$sql"
 					e se o insert for devidamente realizado header direciona o usuario para a pagina de inicio.
@@ -175,6 +187,8 @@
         <br><br>
 
         <h3 class="light"> Área do Administrador </h3>
+
+		
 
         <br><br><br>
 
@@ -510,7 +524,7 @@
                         <tr>
                             <!-- exibindo os dados obtidos do usuario -->
                             <!-- <td class="center"><?php //echo $dados['descetnia'];?></td> -->
-                            <td class="center"><?php echo $dados['etnia'];?></td>
+                            <td class="center"><?php echo $dados['descEtnia'];?></td>
                         </tr>
 
                         
