@@ -51,10 +51,9 @@
 
 				//diferenciando header para usuarios administradores
 				if($adm == '1'){
-					$admpag = "<li><a href='admpag.php'> Página do Administrador</a></li>";
-					$altdados = "<li><a href='dados.php'> Alterar Dados</a></li>";
-					$dep = "<li><a href='depoimentos.php'>Depoimentos</a></li>";
-					$aluno = "<li><a href='alunos.php'> Alunos </a></li>";
+					$admpag = "<li><a class='menuheader' href='admpag.php'> Página do Administrador</a></li>";
+					$dep = "<li><a class='menuheader' href='depoimentos.php'>Depoimentos</a></li>";
+					$aluno = "<li><a class='menuheader' href='alunos.php'> Alunos </a></li>";
 					$img ="src='img/iflogodark.png'";
 					
 				}
@@ -66,7 +65,7 @@
 					$img = "src='img/iflogo.png'";
 				}
 
-				$perfil = "<li><a href='profile.php'> $nome </li>
+				$perfil = "<li><a class='menuheader' href='profile.php'> $nome </li>
 				<li><a href='profile.php'><img class='profile' $img alt='LogoIF'></a></li>";
 				$onoff = "";
 				$title = $nome;
@@ -75,7 +74,7 @@
 			//diferenciando o header caso o usuario nao esteja logado
 			else{
 				$perfil = "";
-				$onoff = "<li><a href='login.php'>Login</a></li>";
+				$onoff = "<li><a class='menuheader' href='login.php'>Login</a></li>";
 				$title = "Yby";
 			}
 			
@@ -100,7 +99,7 @@
 			<!-- header com php para diferenciar se o usuario esta logado ou nao -->
 			<div class="menu valign-wrapper">
 
-				<li><a href="index.php">Home</a></li>
+				<li><a class='menuheader' href="index.php">Home</a></li>
 				<!-- <li><a href="sobre.php">Sobre</a></li> -->
 				
 				<!--<li><a href="contato.php">Contato</a></li>-->
@@ -108,14 +107,13 @@
 				maybe make another page that only shows up when the pessoa is logged in to make the depoimentos meant to be stored
 				maybe make a personal pessoa page where you can do the depoimentos and it shows pessoa info
 				and from there you'd be able to log off and alter your own data like on the update page-->
-				<li><a href="graph.php">Gráficos</a></li>
+				<li><a class='menuheader' href="graph.php">Gráficos</a></li>
 				<!-- <li><a href="usuarios.php">Usuários</a></li> -->
-				<li><a href='eventos.php'> Eventos</a></li>
+				<li><a class='menuheader' href='eventos.php'> Eventos</a></li>
 				<?php echo $dep; ?>
 				<?php echo $aluno; ?>
 				<?php echo $onoff; ?>
 				<?php echo $admpag; ?>
-				<?php echo $altdados; ?>
 				<?php echo $perfil; ?>
 				
 				

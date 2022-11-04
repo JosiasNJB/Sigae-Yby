@@ -55,6 +55,14 @@
 	.menu li a{
 		padding: 5 px;
 	}
+
+	.menuheader {
+		-webkit-transition: color 1s;
+		transition: color 1s;
+	}
+	.menuheader:hover {
+		color: gray;
+	}
 	
 		/* Parte 1.16. da PRIMEIRA especificação */
 	div {
@@ -89,6 +97,15 @@
 		margin-left: auto;
 		margin-right: auto;
 		text-align: justify;
+	}
+
+	.menuadm {
+		text-align:center;
+		-webkit-transition: color 1s;
+		transition: color 1s;
+	}
+	.menuadm:hover {
+		color: gray;
 	}
 
 	.centerp {
