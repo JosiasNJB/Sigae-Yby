@@ -61,7 +61,7 @@
 		transition: color 1s;
 	}
 	.menuheader:hover {
-		color: gray;
+		color:  	#54d094;
 	}
 	
 		/* Parte 1.16. da PRIMEIRA especificação */
@@ -98,6 +98,10 @@
 		margin-right: auto;
 		text-align: justify;
 	}
+
+	.my-wrapper {
+		height: 50%;
+	  }
 
 	.menuadm {
 		text-align:center;

@@ -81,13 +81,11 @@
 			
 			</h5>	
 			
-
+			
 		</div>
-		<br><br>
-		<p class="center"><a class="btn waves-effect waves-light red darken-4" href="logout.php">Log Out</a></p>
+		<p class="center"><br><br><a class="btn waves-effect waves-light red darken-4" href="logout.php">Log Out</a><br><br><br><br></p>
 
-	
-		<br><br><br><br>
+
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis venenatis orci sed feugiat. Integer finibus justo eu nisi vestibulum venenatis. Duis eu consectetur justo. 
 			Nullam consequat leo vel iaculis porttitor. Etiam laoreet at tortor id bibendum. Nulla bibendum enim risus, sit amet molestie sem feugiat et. 

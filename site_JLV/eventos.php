@@ -35,9 +35,20 @@
 
         <br><br>
 
+		<?php
+			if (mysqli_num_rows($resultado)==0){
+				$eventstat = "<div class='my-wrapper valign-wrapper center-align'><h5> Parece que não há nenhum evento agora, favor volte mais tarde. </h5></div>";
+			}
+			else{
+				$eventstat = "<h3 class='light'> Eventos </h3>";
+
+			}
+			echo $eventstat;
+			if (mysqli_num_rows($resultado)>0){
 
 
-        <h3 class="light"> Eventos </h3>
+		?>
+
 
         <br><br><br><br>
 
@@ -48,7 +59,6 @@
 				"$dadosevent" irá buscar um array contendo os dados do index.
                 */
                 
-                if (mysqli_num_rows($resultado)>0){
                      while($dadosevent =mysqli_fetch_array($resultado)){
                         $idevent=['id_evento'];
 						$eventname = $dadosevent['eventnom'];
@@ -81,10 +91,6 @@
 			</tbody>
 
 		</table>
-
-        <?php
-            echo $admevent;
-        ?>
                    
         <table class="depoimento">
 			<?php
@@ -120,6 +126,9 @@
 				</div>
 				<?php
 						}
+					}
+					else{
+						
 					}
 				?>
 			</tbody>
