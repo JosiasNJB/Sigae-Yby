@@ -83,50 +83,56 @@
 
 		<br>
 		
-		<section>
+		
 			<h3>O Projeto</h3>
-			<p>Tivemos a ideia de criar um sistema que receba diversos dados relevantes e que ao fim entregue 
-				aos neabis relatórios e conclusões de cunho social.
+			<p>A sensação de não pertencimento, a falta de formação docente quando a temáticas transversais e o apagamento da cultura não-branca são grandes empecilhos. 
+				A partir de uma perspectiva discente, acreditamos que esse projeto em conjunto com o NEABI, terá um papel muito importante na permanência de minorias dentro da instituição.
 			</p>
-
-			<h3>O NEABI</h3>
+		
+		
+		
+		<h3>O NEABI</h3>
 			<p>
-				O acrônimo NEABI vem de "Núcleo de estudos afro-brasileiros e indígenas", 
-				tem como propósito fundamental a discussão de temas de raça, possibilitando a reflexão de diversos grupos dentro dos 
-				Institutos Federais.
+			O NEABI, acrônimo para núcleo de estudos afro-brasileiros e indígenas, é um órgão de oposição a narrativas únicas. 
+			Tem como missão fundamental o combate ao racismo e a promoção de equidade racial juntamente com os direitos humanos.
+			Dentro do núcleo são trabalhadas temáticas de raça através de discussões, leituras e ações dentro de cada Campi. Infelizmente o núcleo está desativado.
 			</p>
+		
+			
+			
+			<h5>Principais objetivos e finalidades</h5>
+			<ul>
+				<li>1. Propor ações que levem a conhecer o perfil da comunidade interna e externa do campus nos aspectos étnico-raciais;<li>
+				<li>2. Realizar o acolhimento e acompanhamento dos sujeitos Negros e Indígenas ingressantes no campus, de forma a auxiliar na permanência e êxitos destes estudantes<li>
+				<li>3. Promover a realização de atividades de Ensino, Pesquisa e Extensão, relacionadas às temáticas;<li>
+			<ul>
+		
 
-		</section>
-
-		<h3>Nós</h3>
+		<h3>Equipe</h3>
 
 		<p class="centerp">
 
-			<b>Alunos | Idealizadores</b><br>
+			<b>Idealizadores</b><br>
 
 			Larissa Kemile Pereira da Silva <br>
-			Josias Neves Jardim Borba <br>
+			Josias Neves Jardins Borba <br>
 			Vitória Isabel Lemos de Mattos <br>
+			Diego Ramiro Araoz Alves (Sociólogo e ex-coordenador do NEABI Campus Serra) <br>
+			Moises Savedra Omena (Projeto Integrador) <br>
 			<br>
 			
 			<b>Professores e Colaboradores Ativos:</b><br>
 			
-			Ana Paula Klauck - Literatura e Língua Portuguesa<br>
-			Carlos Lins Borges Azevedo - Desenvolvimento de Sistemas<br>
-			Diego Ramiro Araoz Alves - Sociologia<br>
-			Moisés Savedra Omena - Projeto Integrador<br>
-			
+			Ana Paula Klauck-  Literatura e Língua Portuguesa, coordenadora do NEABI Campus Serra <br>
+			Carlos Lins Borges Azevedo - Desenvolvimento de Sistemas <br>
+			Martha Talita - Programação Web II <br>
 			<br>
 			
 			<b>Agradecimentos especiais:</b><br>
 			
-			Alessandra Aguiar Vilarinho - Programação II e Feedbacks<br>
-			Daniel Ribeiro Trindade - Dispositivos Móveis<br>
-			Martha Talita - Programação Web II<br>
-			Paulo Cézar Camargo Guedes - Matemática<br>
-			Lívia de Azevedo Silveira Rangel - História II<br>
-		
-			<br>
+			Alessandra Aguiar Vilarinho - Programação II e Feedbacks <br>
+			Daniel Ribeiro Trindade - Dispositivos Móveis <br>
+			Lívia de Azevedo Silveira Rangel - História II <br>
 		</p>
 
 		<p>
@@ -156,14 +162,12 @@
 				<br>
 				<br>
 
-		<figure>
-			<div class="container">
-				<a href="#"><img class="anonGrey" src="img/anonGrey.png" alt="anon"></a>
-			</div>
-		</figure>
+			<figure>
+				<div class="container">
+					<a href="#"><img class="africa" src="img/africa.png" alt="africa"></a>
+				</div>
+			</figure>
 
-
-		
 
 		<!-- js materialize para funcionamento do carousel -->
 		<script>
