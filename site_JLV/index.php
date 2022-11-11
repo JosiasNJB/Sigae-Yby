@@ -98,15 +98,6 @@
 			Dentro do núcleo são trabalhadas temáticas de raça através de discussões, leituras e ações dentro de cada Campi. Infelizmente o núcleo está desativado.
 			</p>
 		
-			
-			
-			<h5>Principais objetivos e finalidades</h5>
-			<ul>
-				<li>1. Propor ações que levem a conhecer o perfil da comunidade interna e externa do campus nos aspectos étnico-raciais;<li>
-				<li>2. Realizar o acolhimento e acompanhamento dos sujeitos Negros e Indígenas ingressantes no campus, de forma a auxiliar na permanência e êxitos destes estudantes<li>
-				<li>3. Promover a realização de atividades de Ensino, Pesquisa e Extensão, relacionadas às temáticas;<li>
-			<ul>
-		
 
 		<h3>Equipe</h3>
 
