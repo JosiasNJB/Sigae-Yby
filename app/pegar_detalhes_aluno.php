@@ -45,10 +45,7 @@ if(autenticar($db_con)) {
 				$resposta["email"] = $linha["email"];
 				$resposta["telefone"] = $linha["telefone"];
 				$resposta["assistencia"] = $linha["assistencia"];
-				$resposta["etnia"] = $linha["etnia"];
 
-				$resposta["criado_em"] = $linha["criado_em"]; // O QUE É
-				$resposta["criado_por"] = $linha["usuarios_login"];
 				
 				// Caso o aluno exista no BD, o cliente 
 				// recebe a chave "sucesso" com valor 1.
