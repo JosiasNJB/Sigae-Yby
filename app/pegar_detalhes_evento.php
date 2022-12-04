@@ -36,11 +36,10 @@ if(autenticar($db_con)) {
 				// a imagem do produto.
 				$linha = $consulta->fetch(PDO::FETCH_ASSOC);
 	 
-				$resposta["nome"] = $linha["nome"];
-				$resposta["preco"] = $linha["preco"];
+				$resposta["tipo"] = $linha["tipo"];
+				$resposta["data"] = $linha["data"];
+				$resposta["quem"] = $linha["quem"];
 				$resposta["descricao"] = $linha["descricao"];
-				$resposta["criado_em"] = $linha["criado_em"];
-				$resposta["criado_por"] = $linha["usuarios_login"];
 				
 				// Caso o produto exista no BD, o cliente 
 				// recebe a chave "sucesso" com valor 1.
@@ -51,7 +50,7 @@ if(autenticar($db_con)) {
 				// recebe a chave "sucesso" com valor 0. A chave "erro" indica o 
 				// motivo da falha.
 				$resposta["sucesso"] = 0;
-				$resposta["erro"] = "Produto não encontrado";
+				$resposta["erro"] = "Evento não encontrado";
 			}
 		} else {
 			// Caso ocorra falha no BD, o cliente 

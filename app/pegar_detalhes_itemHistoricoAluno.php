@@ -1,8 +1,8 @@
 <?php
  
 /*
- * O codigo seguinte retorna os dados detalhados de um produto.
- * Essa e uma requisicao do tipo GET. Um produto e identificado 
+ * O codigo seguinte retorna os dados detalhados de um item de histórico do aluno.
+ * Essa e uma requisicao do tipo GET. Um item de histórico do aluno e identificado 
  * pelo campo id.
  */
 
@@ -24,34 +24,30 @@ if(autenticar($db_con)) {
 		// Aqui sao obtidos os parametros
 		$id = $_GET['id'];
 	 
-		// Obtem do BD os detalhes do produto com id especificado na requisicao GET
+		// Obtem do BD os detalhes do item de histórico do aluno com id especificado na requisicao GET
 		$consulta = $db_con->prepare("SELECT * FROM produtos WHERE id = $id");
 	 
 		if ($consulta->execute()) {
 			if ($consulta->rowCount() > 0) {
 	 
-				// Se o produto existe, os dados completos do produto 
-				// sao adicionados no array de resposta. A imagem nao 
-				// e entregue agora pois ha um php exclusivo para obter 
-				// a imagem do produto.
+				// Se o item de histórico do aluno existe, os dados completos do item de histórico do aluno 
+				// sao adicionados no array de resposta.
 				$linha = $consulta->fetch(PDO::FETCH_ASSOC);
 	 
-				$resposta["nome"] = $linha["nome"];
-				$resposta["preco"] = $linha["preco"];
+				$resposta["titulo"] = $linha["titulo"];
 				$resposta["descricao"] = $linha["descricao"];
-				$resposta["criado_em"] = $linha["criado_em"];
-				$resposta["criado_por"] = $linha["usuarios_login"];
+				$resposta["data"] = $linha["data"];
 				
-				// Caso o produto exista no BD, o cliente 
+				// Caso o item de histórico do aluno exista no BD, o cliente 
 				// recebe a chave "sucesso" com valor 1.
 				$resposta["sucesso"] = 1;
 				
 			} else {
-				// Caso o produto nao exista no BD, o cliente 
+				// Caso o item de histórico do aluno nao exista no BD, o cliente 
 				// recebe a chave "sucesso" com valor 0. A chave "erro" indica o 
 				// motivo da falha.
 				$resposta["sucesso"] = 0;
-				$resposta["erro"] = "Produto não encontrado";
+				$resposta["erro"] = "Item de histórico não encontrado";
 			}
 		} else {
 			// Caso ocorra falha no BD, o cliente 

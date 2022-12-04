@@ -1,5 +1,7 @@
 <?php
  
+// APENAS OQ DEVE APARECER NA TELA
+
 /*
  * O codigo seguinte retorna os dados detalhados de um aluno.
  * Essa e uma requisicao do tipo GET. Um aluno e identificado 
@@ -30,7 +32,8 @@ if(autenticar($db_con)) {
 	 
 		// SEM BANCO DE DADOS VERDADEIRO
 		// Obtem do BD os detalhes do produto com id especificado na requisicao GET
-		$consulta = $db_con->prepare("SELECT * FROM produtos WHERE id = $id"); //CONSULTAR
+		// PERGUNTAR AO DANIEL COMO ESSE CÓDIGO SE APLICA A NOSSA APP
+		$consulta = $db_con->prepare("SELECT * FROM produtos WHERE id = $id"); //JOSIAS CONSULTAR
 	 
 		if ($consulta->execute()) {
 			if ($consulta->rowCount() > 0) {
