@@ -91,7 +91,7 @@
 			</tbody>
 
 		</table>
-                   
+        <h3><br>Eventos de administrador</h3>          
         <table class="depoimento">
 			<?php
 			    /* Enquanto o array que contém os resultados da consulta tiver pelo menos 1 index,

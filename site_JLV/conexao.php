@@ -3,7 +3,7 @@
     //estabelecendo as variaveis para conexao com o banco de dados
     $servername = "localhost";
     $username = "root";
-    $password = "usbw";
+    $password = "";
     $db_name = "banco_projetointegrador";
 
     //abrindo a conexao com o banco de dados
