@@ -107,6 +107,14 @@
 
 				<!-- <div> é a tag usada para dividir e organizar o documento -->
 				<div class="row">
+					<div class="input-field col s10 pull-s1">
+
+						  <input id="matricula" type="text" class="validate" name="matricula">
+						  <label for="matricula">Matricula</label>
+					</div>
+				</div>
+
+				<div class="row">
 					
 					<div class="input-field col s5">
 						<input id="nome" type="text" class="validate" name="nome">
@@ -118,19 +126,12 @@
 						<label for="email">E-Mail</label>
 					</div>
 				</div>
-				<div class="row">
-					<div class="input-field col s10 pull-s1">
-
-						  <input id="matricula" type="text" class="validate" name="matricula">
-						  <label for="matricula">Matricula</label>
-					</div>
-				</div>
 
 				<div class="row">
 					<div class="input-field col s10 pull-s1">
 
-						  <input id="senha" type="password" class="validate" name="senha">
-						  <label for="senha">Senha</label>
+						  <input id="telefone" type="password" class="validate" name="telefone">
+						  <label for="telefone">Telefone</label>
 					</div>
 				</div>
 

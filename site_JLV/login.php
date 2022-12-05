@@ -127,13 +127,6 @@
 		<br>
 
 		<div>
-			<a href="cadastro.php"> Não tem um login? Cadastre-se agora!</a>
-		</div>
-
-		<br>
-		<br>
-
-		<div>
 			<a href="admcadastro.php"> Cadastro de administrador</a>
 		</div>
 
