@@ -30,14 +30,14 @@
 			$adm = "";
 			$dep = "";
 			$aluno = "";
-
+			
 			if($_SESSION['logado'] == true){
 
 				//obtendo a variavel de sessao para colocar na query
-				$id = $_SESSION['idu'];
+				$siape = $_SESSION['siape'];
 
 				//sql query para obter nome e identificador de adm do usuario 
-				$sql = "SELECT nome, adm from pessoa where id_pessoa = $id;";
+				$sql = "SELECT nome from usuario where siape = $siape;";
 
 				//Msqli_query aplica a string "$sql"
 				$resultado = mysqli_query($connect, $sql);
@@ -47,32 +47,25 @@
 				
 				//atribuindo valores do array em variaveis
 				$nome = $array[0];
-				$adm = $array[1];
 
 				//diferenciando header para usuarios administradores
-				if($adm == '1'){
-					$admpag = "<li><a class='menuheader' href='admpag.php'> Página do Administrador</a></li>";
-					$dep = "<li><a class='menuheader' href='depoimentos.php'>Depoimentos</a></li>";
-					$aluno = "<li><a class='menuheader' href='alunos.php'> Alunos </a></li>";
-					$img ="src='img/iflogodark.png'";
-					
-				}
-				else{
-					$admpag = "";
-					$altdados = "";
-					$dep = "";
-					$aluno = "";
-					$img = "src='img/iflogo.png'";
-				}
-
+				$img ="src='img/iflogodark.png'";
+				$admpag = "<li><a class='menuheader' href='admpag.php'> Página do Administrador</a></li>";
 				$perfil = "<li><a class='menuheader' href='profile.php'> $nome </li>
 				<li><a href='profile.php'><img class='profile' $img alt='LogoIF'></a></li>";
+				$dep = "<li><a class='menuheader' href='depoimentos.php'>Depoimentos</a></li>";
+				$aluno = "<li><a class='menuheader' href='alunos.php'> Alunos </a></li>";
 				$onoff = "";
 				$title = $nome;
 
 			}
 			//diferenciando o header caso o usuario nao esteja logado
 			else{
+				$admpag = "";
+				$altdados = "";
+				$dep = "";
+				$aluno = "";
+				//$img = "src='img/iflogo.png'";
 				$perfil = "";
 				$onoff = "<li><a class='menuheader' href='login.php'>Login</a></li>";
 				$title = "Yby";
@@ -115,6 +108,7 @@
 				<?php echo $onoff; ?>
 				<?php echo $admpag; ?>
 				<?php echo $perfil; ?>
+				
 				
 				
 			</div>

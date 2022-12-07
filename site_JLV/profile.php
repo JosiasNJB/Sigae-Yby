@@ -7,12 +7,12 @@
 			//chamando o header na pagina	
 			include_once 'header.php';
 
-			$sql="SELECT * FROM pessoa WHERE id_pessoa = $id;";
+			$sql="SELECT * FROM usuario WHERE Siape = $siape;";
 			$resultado= mysqli_query($connect,$sql);
 			$array = mysqli_fetch_array($resultado);
 			$nome = $array[1];
 			$email = $array[2];
-			$etnia = $array[4];
+			$telefone = $array[4];
 			
 			//isset determina que o botao foi ativado.
 			if(isset($_POST['btn_D'])){

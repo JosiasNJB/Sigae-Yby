@@ -36,7 +36,7 @@
 					$senha = md5(mysqli_escape_string($connect, $sen));
 
 					//Query de sql como uma string obtendo id, email e senha do usuario quando a senha e email estao corretos
-					$sql = "SELECT siape, email, senha from usuario where email = '$em' and senha = '$senha' ";
+					$sql = "SELECT Siape, email, senha from usuario where email = '$em' and senha = '$senha' ";
 					
 					/* Está retornando, de dentro da tabela representada pela variável "$connect",
 					um array que contém todos os resultados que atendem aos requisitos da consulta
@@ -54,7 +54,7 @@
 						
 						$dados = mysqli_fetch_array($resultado);
 						$_SESSION['logado'] = true;
-						$_SESSION['idu'] = $dados['id_pessoa'];
+						$_SESSION['siape'] = $dados['Siape'];
 						header("location: index.php");
 
 					}
