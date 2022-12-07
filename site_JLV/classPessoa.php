@@ -1,6 +1,15 @@
 <?php
     class Pessoa extends CRUD{
 
+        protected $table ='usuario';
+	
+        private $idUsuario;
+        private $nome;
+        private $senha;
+        private $nascimento;
+        private $sobrenome;
+        private $email;
+
         public function setSiape($siape){
             $this->senha = $senha;
         }

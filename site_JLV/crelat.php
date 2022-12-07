@@ -6,13 +6,6 @@ require 'conexao.php';
 //chamando o header na pagina	
 include_once 'header.php';
 
-/*$sql="SELECT * FROM pessoa WHERE id_pessoa = $id;";
-$resultado= mysqli_query($connect,$sql);
-$array = mysqli_fetch_array($resultado);
-$nome = $array[1];
-$email = $array[2];
-$etnia = $array[4];
-*/
 if(isset($_POST['btn_relatorio'])){
 
     //inicializando array de erros

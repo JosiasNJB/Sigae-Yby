@@ -95,7 +95,10 @@
 
 		<?php
 			if($_SESSION['logado'] == true and mysqli_num_rows($resultadoprivate)==0){
-				
+				$eventstatadm = "<div class='my-wrapper valign-wrapper center-align'><h5> Parece que não há nenhum evento privado agora, favor volte mais tarde. </h5></div>";
+
+			}
+			elseif(){
 
 			}
 		?>

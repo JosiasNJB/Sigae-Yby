@@ -7,13 +7,11 @@ require 'conexao.php';
 include_once 'header.php';
 
 
-
-
 ?>	
 
 <br><br>
 
-<h3 class="light"> Dados de alunos <br><br></h3>
+<h3 class="light"> Dados de administrador <br><br></h3>
 
 
 <div class="row">
@@ -21,9 +19,10 @@ include_once 'header.php';
     <table class="striped">
         <thead>
             <tr>
+                <th>Siape: </th>
                 <th>Nome: </th>
                 <th>Email: </th>
-                <th>Etnia: </th>                                                   
+                <th>Telefone: </th>                                                   
             </tr>
         </thead>
         
@@ -31,7 +30,7 @@ include_once 'header.php';
         <?php
             
             //sql query como uma string selecionando todos os dados dos usuarios na tabela
-            $sql="SELECT id_pessoa, nome, email, descetnia FROM pessoa p inner join etnia e where FK_ETNIA_id_etnia = id_etnia";
+            $sql="SELECT Siape, nome, email, telefone FROM usuario";
             
 
             /* Está retornando, de dentro da tabela representada pela variável "$connect",
@@ -49,12 +48,13 @@ include_once 'header.php';
                 ?>
             <tr>
                 <!-- exibindo os dados obtidos do usuario -->
+                <td><?php echo $dados['Siape'];?></td>
                 <td><?php echo $dados['nome'];?></td>
                 <td><?php echo $dados['email'];?></td>
-                <td><?php echo $dados['descetnia'];?></td>
-                <td><a class="btn waves-effect waves-light red darken-4" href="delete.php?id=<?php echo $dados['id_pessoa'];?>"> Delete</td>
+                <td><?php echo $dados['telefone'];?></td>
+                <td><a class="btn waves-effect waves-light red darken-4" href="delete.php?siape=<?php echo $dados['Siape'];?>"> Delete</td>
 
-                <td><a class="btn waves-effect waves-light green accent-4" href="update.php?id=<?php echo $dados['id_pessoa'];?>"> Update</td>
+                <td><a class="btn waves-effect waves-light green accent-4" href="update.php?siape=<?php echo $dados['Siape'];?>"> Update</td>
             </tr>
 
             

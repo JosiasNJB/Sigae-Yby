@@ -12,83 +12,21 @@
 			include_once 'header.php';
 
 			//obtendo id do usuario selecionado via get	
-			if(isset($_GET['id'])){
-				$_SESSION['id2'] = $_GET['id'];
+			if(isset($_GET['siape'])){
+				$_SESSION['siape2'] = $_GET['siape'];
 
 			}
 
-			$id2 = $_SESSION['id2'];
-			$sql2="SELECT * FROM pessoa WHERE id_pessoa = $id2;";
+			$siape2 = $_SESSION['siape2'];
+			$sql2="SELECT * FROM usuario WHERE Siape = $siape2;";
 			$resultado= mysqli_query($connect,$sql2);
 			$array2 = mysqli_fetch_array($resultado);
 
-			$sql2aluno="SELECT * FROM aluno WHERE FK_PESSOA_id_pessoa = $id2;";
-			$resultadoaluno= mysqli_query($connect,$sql2aluno);
-			$array2aluno = mysqli_fetch_array($resultadoaluno);
-
-			$type = $array2['adm'];
+			$placehsiape = $array2['Siape'];
 			$placehname = $array2['nome'];
 			$placehemail = $array2['email'];
-			$placehmatricula = $array2aluno['matricula'];
+			$placehtel = $array2['telefone'];
 			
-			if ($type == '0'){
-				$campomatricula="
-				<div class='row'>
-					<div class='input-field col s10 pull-s1'>
-
-						  <input id='matricula' type='text' class='validate' name='matricula' value= '$placehmatricula'>
-						  <label for='matricula'>Matricula</label>
-					</div>
-				</div>
-				";
-			}
-			else{
-				$campomatricula="";
-			}
-			
-
-			if ($array2['FK_ETNIA_id_etnia'] == "1"){
-				$preto = "checked = 'checked'";
-				$pardo = "";
-				$branco = "";
-				$indigena = "";
-				$outro = "";
-
-			}
-			elseif ($array2['FK_ETNIA_id_etnia'] == "2"){
-				$preto = "";
-				$pardo = "checked = 'checked'";
-				$branco = "";
-				$indigena = "";
-				$outro = "";
-
-			}
-			elseif ($array2['FK_ETNIA_id_etnia'] == "3"){
-				$preto = "";
-				$pardo = "";
-				$branco = "checked = 'checked'";
-				$indigena = "";
-				$outro = "";
-				
-			}
-			elseif ($array2['FK_ETNIA_id_etnia'] == "4"){
-				$preto = "";
-				$pardo = "";
-				$branco = "";
-				$indigena = "checked = 'checked'";
-				$outro = "";
-				
-			}
-			else{
-				$preto = "";
-				$pardo = "";
-				$branco = "";
-				$indigena = "";
-				$outro = "checked = 'checked'";
-
-				
-			}
-
 			//Isset determina que os campos do formulario nao sao nulos.
 			if(isset($_POST['btn_Send'])){
 
@@ -96,16 +34,15 @@
 				$erros = array();
 
 				//Criando e atribuindo às respectivas variaveis os valores inseridos nos campos do formulario.
+				$siape=$_POST['Siape'];
 				$nome=$_POST['nome'];
 				$email=$_POST['email'];
 				$senha = $_POST['senha'];
-				if(isset($_POST['etnia'])){
-					$etnia = $_POST['etnia'];
-				}
-
+				$tel = $_POST['telefone'];
 				//preenchendo o array de erros
-				else{
-					$erros[] = "<li>O campo etnia precisa ser preenchido</li>";
+
+				if(empty($siape)){
+					$erros[] = "<li>O campo siape precisa ser preenchido</li>";
 				}
 
 				if(empty($nome)){
@@ -121,6 +58,9 @@
 						$erros[] = "<li>O campo email precisa ser preenchido corretamente</li>";
 					}
 				}
+				if(empty($tel)){
+					$erros[] = "<li>O campo telefone precisa ser preenchido</li>";
+				}
 
 				if(empty($senha)){
 					$erros[] = "<li>O campo senha precisa ser preenchido</li>";
@@ -132,23 +72,13 @@
 					$senha=md5($senha);
 
 					//Sql query para inserir os valores obtidos na tabela
-					$sql="UPDATE pessoa set nome='$nome', email='$email', senha='$senha', FK_ETNIA_id_etnia='$etnia' WHERE id_pessoa = $id2 ;";
+					$sql="UPDATE usuario set nome='$nome', email='$email', senha='$senha', telefone='$tel' WHERE Siape = $siape2 ;";
 
-					
-					
 					/*Msqli_query aplica a string "$sql"
 					e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
 					*/ 
 					if (mysqli_query($connect, $sql)){
-						if($type == 0){
-							$sqlaluno="UPDATE aluno set matricula = '$matricula');";
-							if(mysqli_query($connect, $sqlaluno)){
-								header('location: login.php');
-							}
-						}
-						else{
-							header('location: login.php');
-						}
+						header('location: login.php');
 					}
 					else{
 						header('location: update.php');
@@ -171,6 +101,13 @@
 
 				<!-- <div> é a tag usada para dividir e organizar o documento -->
 				<div class="row">
+					<div class="input-field col s10 pull-s1">
+						  <input id="siape" type="number" class="validate" name="siape" value="<?php echo $placehsiape; ?> ">
+						  <label for="siape">Siape</label>
+					</div>
+				</div>
+
+				<div class="row">
 					
 					<div class="input-field col s5">
 						<input id="nome" type="text" class="validate" name="nome" value="<?php echo $placehname; ?> ">
@@ -178,65 +115,26 @@
 					</div>
 
 					<div class="input-field col s5 pull-s1">
-						<input id="email" type="text" class="validate" name="email" value="<?php echo $placehemail; ?>">
+						<input id="telefone" type="text" class="validate" name="telefone" value="<?php echo $placehtel; ?> ">
+						<label for="telefone">Telefone</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s10 pull-s1">
+					<input id="email" type="text" class="validate" name="email" value="<?php echo $placehemail; ?>">
 						<label for="email">E-Mail</label>
 					</div>
 				</div>
 
-				<?php
-					echo $campomatricula;
-				?>
-
 				<div class="row">
 					<div class="input-field col s10 pull-s1">
 						  <input id="senha" type="password" class="validate" name="senha">
-						  <label for="textarea1">Senha</label>
+						  <label for="senha">Senha</label>
 					</div>
 				</div>
 
-				<br>
-				<p class="centerp">Como você se autodeclara?&nbsp;</p>
-				<br>
 
-				<div class="input-field col s6">
-
-					<br>
-	
-					<p class="centerp">
-						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="1" <?php echo $preto; ?>/>
-						  <span>Preto</span>
-						</label>
-					</p>
-	
-					<p class="centerp">
-						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="2" <?php echo $pardo; ?> />
-						  <span>Pardo</span>
-						</label>
-					</p>
-	
-					<p class="centerp">
-						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="3" <?php echo $branco; ?> />
-						  <span>Branco</span>
-						</label>
-					</p>
-
-                    <p class="centerp">
-						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="4" <?php echo $indigena; ?> />
-						  <span>Indígena</span>
-						</label>
-					</p>
-	
-					<p class="centerp">
-						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="5" <?php echo $outro;?> />
-						  <span>Outro</span>
-						</label>
-					</p>
-				</div>
 
 				<br>
 

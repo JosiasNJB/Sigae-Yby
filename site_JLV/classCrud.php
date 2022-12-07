@@ -1,5 +1,5 @@
 <?php
-	require_once 'conexao.php';
+	require_once 'classConexao.php';
 	
 	abstract class CRUD extends Database{
 		
@@ -11,7 +11,7 @@
 		//abstract public function update($id);
 		
 		public function  find($id){
-			$sql = "SELECT * FROM $this->table WHERE codigo_pessoa = :id";
+			$sql = "SELECT * FROM $this->table WHERE id = :id";
 			$stmt = Database::prepare($sql);
 			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 			$stmt->execute();
