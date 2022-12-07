@@ -20,8 +20,6 @@ if(autenticar($db_con)) {
 	// Primeiro, verifica-se se todos os parametros foram enviados pelo cliente.
 	// A criacao de um administrador precisa dos seguintes parametros:
 
-	// nome - nome completo do adm --> TEM ALGUMA FORMA DE VERIFICAR SE O NOME ESTÁ REALMENTE COMPLETO?
-
 	// email - preco do admnistrador
 	// siape - SIAPE do admnistrador
 	// senha - senha do administrador -->  PRECISA DE OUTRA VARIÁVEL PARA A CONFIRMACAO?
@@ -34,7 +32,7 @@ if(autenticar($db_con)) {
 		$siape = $_POST['siape'];
 		$siape = $_POST['senha'];
 		
-		// A proxima linha insere um novo produto no BD.
+		// A proxima linha insere um novo aluno no BD.
 		// A variavel consulta indica se a insercao foi feita corretamente ou nao.
 		$consulta = $db_con->prepare("INSERT INTO cadastro(nome, email, siape, senha) VALUES('$nome', '$email', '$siape', '$senha')");
 		if ($consulta->execute()) {
