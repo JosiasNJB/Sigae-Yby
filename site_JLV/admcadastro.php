@@ -94,7 +94,7 @@
 
 				<div class="row">
 					<div class="input-field col s10 pull-s1">
-						  <input id="siape" type="password" class="validate" name="siape">
+						  <input id="siape" type="number" class="validate" name="siape">
 						  <label for="siape">Siape</label>
 					</div>
 				</div>

@@ -19,6 +19,7 @@
 		um array que contém todos os resultados que atendem aos requisitos da consulta
 		dentro de "$sql".
 		*/
+		$logado = $_SESSION['logado'];
 		$resultado= mysqli_query($connect,$sqlpublic);
         $resultadoprivate= mysqli_query($connect,$sqlprivate);
 
@@ -91,6 +92,13 @@
 			</tbody>
 
 		</table>
+
+		<?php
+			if($_SESSION['logado'] == true and mysqli_num_rows($resultadoprivate)==0){
+				
+
+			}
+		?>
         <h3><br>Eventos de administrador</h3>          
         <table class="depoimento">
 			<?php
@@ -98,7 +106,7 @@
 				"$dadosevent" irá buscar um array contendo os dados do index.
                 */
                 
-                if (mysqli_num_rows($resultadoprivate)>0 and $adm == '1'){
+                if (mysqli_num_rows($resultadoprivate)>0 and ){
                      while($dadosevent =mysqli_fetch_array($resultadoprivate)){
                         $idevent=['id_evento'];
 						$eventname = $dadosevent['eventnom'];

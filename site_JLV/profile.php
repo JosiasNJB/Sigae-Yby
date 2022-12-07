@@ -72,7 +72,7 @@
 				<?php
 					echo "$nome <br>";
 					echo "$email<br>";
-					echo "$etnia <br>";
+					echo "$telefone <br>";
 
 
 				?>

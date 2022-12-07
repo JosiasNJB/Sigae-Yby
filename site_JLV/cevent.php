@@ -6,25 +6,6 @@ require 'conexao.php';
 //chamando o header na pagina	
 include_once 'header.php';
 
-/*$sql="SELECT * FROM pessoa WHERE id_pessoa = $id;";
-$resultado= mysqli_query($connect,$sql);
-$array = mysqli_fetch_array($resultado);
-$nome = $array[1];
-$email = $array[2];
-$etnia = $array[4];
-*/
-
-/*$sqlidevent='SELECT * from evento;';
-$resultadoevent= mysqli_query($connect,$sqlidevent);
-if (mysqli_num_rows($resultadoevent)>0){
-    $idevent = mysqli_num_rows($resultadoevent);
-
-}
-else{
-    $idevent = '0';
-}
-*/
-
 //isset determina que o botao foi ativado.
 if(isset($_POST['btn_evento'])){
 

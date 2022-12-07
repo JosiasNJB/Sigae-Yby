@@ -15,12 +15,12 @@
 				$erros = array();
 
 				//obtendo os valores dos formularios via post
-				$em = $_POST['email'];		
+				$siape2 = $_POST['siape'];		
 				$sen = $_POST['senha'];
 
 				//colocando mensagens no array de erros
 				if(empty($em)){
-					$erros[] = "<li>O campo email precisa ser preenchido</li>\n";
+					$erros[] = "<li>O campo siape precisa ser preenchido</li>\n";
 				}
 
 				if(empty($sen)){
@@ -36,7 +36,7 @@
 					$senha = md5(mysqli_escape_string($connect, $sen));
 
 					//Query de sql como uma string obtendo id, email e senha do usuario quando a senha e email estao corretos
-					$sql = "SELECT Siape, email, senha from usuario where email = '$em' and senha = '$senha' ";
+					$sql = "SELECT Siape, email, senha from usuario where siape = '$siape2' and senha = '$senha' ";
 					
 					/* Está retornando, de dentro da tabela representada pela variável "$connect",
 					um array que contém todos os resultados que atendem aos requisitos da consulta
@@ -83,15 +83,15 @@
 				<div class="row">
 
 					<div class="input-field col s10 pull-s1">
-						<input id="email" type="text" name="email" class="validate">
-						<label for="email">E-Mail </label>
+						<input id="siape" type="text" name="siape" class="validate">
+						<label for="siape">Siape </label>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="input-field col s10 pull-s1">
 						<input id="senha" type="password" name="senha" class="validate">
-						<label for="textarea1">Senha</label>
+						<label for="senha">Senha</label>
 					</div>
 				</div>
 
