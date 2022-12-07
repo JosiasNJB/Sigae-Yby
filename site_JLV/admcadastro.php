@@ -10,7 +10,9 @@
 				$erros = array();
 
 				//obtendo os valores dos formularios via post
+				$siape = $_POST['siape'];
 				$nome=$_POST['nome'];
+				$telefone = $_POST['telefone'];
 				$email=$_POST['email'];
 				$senha = $_POST['senha'];
 
@@ -20,8 +22,17 @@
 				
 
 				//preenchendo o array de erros
+
+				if(empty($siape)){
+					$erros[] = "<li>O campo siape precisa ser preenchido</li>";
+				}
+
 				if(empty($nome)){
 					$erros[] = "<li>O campo nome precisa ser preenchido</li>";
+				}
+
+				if(empty($telefone)){
+					$erros[] = "<li>O campo telefone precisa ser preenchido</li>";
 				}
 
 				if(empty($email)){
@@ -36,13 +47,6 @@
 
 				if(empty($senha)){
 					$erros[] = "<li>O campo senha precisa ser preenchido</li>";
-				}
-
-				if(isset($_POST['etnia'])){
-					$etnia = $_POST['etnia'];
-				}
-				else{
-					$erros[] = "<li>O campo etnia precisa ser preenchido</li>";
 				}
 
 				//metodo temporario de implementar administrador
