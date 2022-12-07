@@ -1,5 +1,5 @@
 <?php
-	require_once '../utils/dadosconexao.php';
+	require_once 'conexao.php';
 	
 	class Database{
 		private static $conn;

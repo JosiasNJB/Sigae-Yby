@@ -3,17 +3,6 @@
 
 			//chamando o arquivo de conexao
 			require 'conexao.php';
-
-			$sqlid='SELECT * from pessoa;';
-			$resultado= mysqli_query($connect,$sqlid);
-			if (mysqli_num_rows($resultado)>0){
-				$idpessoa = mysqli_num_rows($resultado);
-
-			}
-			else{
-				$idpessoa = '0';
-			}
-
 			//isset determina que o botao foi ativado.
 			if(isset($_POST['btn_Send'])){
 
@@ -70,7 +59,7 @@
 					$senha=md5($senha);
 					
 					//Sql query para inserir os valores obtidos na tabela
-					$sql="INSERT INTO pessoa(id_pessoa, nome, email, senha, FK_ETNIA_id_etnia, adm) VALUES('$idpessoa', '$nome', '$email', '$senha', '$etnia', '1');";
+					$sql="INSERT INTO usuario(siape, nome, email, senha, telefone) VALUES('$siape', '$nome', '$email', '$senha', '$telefone');";
 					
 					/*Msqli_query aplica a string "$sql"
 					e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
@@ -121,6 +110,13 @@
 					</div>
 
 					<div class="input-field col s5 pull-s1">
+						<input id="telefone" type="text" class="validate" name="telefone">
+						<label for="telefone">Telefone</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s10 pull-s1">
 						<input id="email" type="text" class="validate" name="email">
 						<label for="email">E-Mail</label>
 					</div>
@@ -132,51 +128,6 @@
 						  <label for="senha">Senha</label>
 					</div>
 				</div>
-
-				<br>
-				<p class="centerp">Como você se autodeclara?&nbsp;</p>
-				<br>
-				<div class="input-field col s6">
-
-					<br>
-	
-					<p class="centerp">
-						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="1"/>
-						  <span>Preto</span>
-						</label>
-					</p>
-	
-					<p class="centerp">
-						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="2" />
-						  <span>Pardo</span>
-						</label>
-					</p>
-	
-					<p class="centerp">
-						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="3" />
-						  <span>Branco</span>
-						</label>
-					</p>
-
-                    <p class="centerp">
-						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="4" />
-						  <span>Indígena</span>
-						</label>
-					</p>
-	
-					<p class="centerp">
-						<label>
-						  <input class="with-gap" name="etnia" type="radio" value="5"/>
-						  <span>Amarelo</span>
-						</label>
-					</p>
-				</div>
-
-				<br>
 
 				<div class="btnSubmit">
 					<button class="btn btn-outline-success" type="submit" name="btn_Send">Enviar</button>

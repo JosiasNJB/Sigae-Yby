@@ -6,7 +6,7 @@
 			//chamando o header na pagina	
 			include_once 'header.php';
             
-			/*$sql="SELECT * FROM pessoa WHERE id_pessoa = $id;";
+			/*$sql="SELECT * FROMusuario WHERE id_pessoa = $id;";
 			$resultado= mysqli_query($connect,$sql);
 			$array = mysqli_fetch_array($resultado);
 			$nome = $array[1];
@@ -38,7 +38,7 @@
                     <?php
                         
                         //sql query como uma string selecionando todos os dados dos usuarios na tabela
-                        $sql="SELECT id_pessoa, nome, email, descetnia FROM pessoa p inner join etnia e where FK_ETNIA_id_etnia = id_etnia";
+                        $sql="SELECT id_pessoa, nome, email, descetnia FROMusuario p inner join etnia e where FK_ETNIA_id_etnia = id_etnia";
                         
 
                         /* Está retornando, de dentro da tabela representada pela variável "$connect",

@@ -1,5 +1,5 @@
 <?php
-	require_once 'classConexao.php';
+	require_once 'conexao.php';
 	
 	abstract class CRUD extends Database{
 		

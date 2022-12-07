@@ -3,26 +3,6 @@
 
 			//chamando o arquivo de conexao
 			require 'conexao.php';
-			
-			$sqlid='SELECT * from pessoa;';
-			$resultado= mysqli_query($connect,$sqlid);
-			if (mysqli_num_rows($resultado)>0){
-				$idpessoa = mysqli_num_rows($resultado);
-
-			}
-			else{
-				$idpessoa = '0';
-			}
-			$sqlidaluno='SELECT * from aluno;';
-			$resultadoaluno= mysqli_query($connect,$sqlidaluno);
-			if (mysqli_num_rows($resultadoaluno)>0){
-				$idaluno = mysqli_num_rows($resultadoaluno);
-				//echo $idaluno;
-
-			}
-			else{
-				$idaluno = '0';
-			}
 			//isset determina que o botao foi ativado.
 			if(isset($_POST['btn_Send'])){
 
@@ -30,9 +10,9 @@
 				$erros = array();
 
 				//obtendo os valores dos formularios via post
+				$matricula = $_POST['matricula'];
 				$nome=$_POST['nome'];
 				$email=$_POST['email'];
-				$matricula = $_POST['matricula'];
 				$senha = $_POST['senha'];
 
 				//preenchendo o array de erros
@@ -74,17 +54,14 @@
 					$senha=md5($senha);
 
 					//Sql query para inserir os valores obtidos na tabela 
-					$sql="INSERT INTO pessoa(id_pessoa, nome, email, senha, FK_ETNIA_id_etnia, adm) VALUES('$idpessoa', '$nome', '$email', '$senha', '$etnia', '0');";
+					$sql="INSERT INTO aluno(matricula, nome, email, senha, FK_ETNIA_id_etnia) VALUES('$matricula', '$nome', '$email', '$senha', '$etnia');";
 
 		
 					/*Msqli_query aplica a string "$sql"
 					e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
 					*/ 
 					if (mysqli_query($connect, $sql)){
-						$sqlaluno="INSERT INTO aluno(id_aluno, FK_PESSOA_id_pessoa, matricula) VALUES('$idaluno', '$idpessoa', '$matricula');";
-						if(mysqli_query($connect, $sqlaluno)){
-							header('location: cadastro.php');
-						}
+						header('location: cadastro.php');
 					}
 					else{
 						header('location: cadastro.php');
