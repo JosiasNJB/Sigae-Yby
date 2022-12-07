@@ -21,43 +21,27 @@
 			</div>	
 		</div>
 
-		<h3>Manifesto</h3>
-			
+		<h3>Relatos</h3>
 			
 		<br>
 		
 		
-		<!-- Texto de manifesto | em desenvolvimento -->
+		<!-- Texto de depoimento -->
 		<p class="manifesto">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-			At quis risus sed vulputate odio ut enim. Nunc lobortis mattis aliquam faucibus purus in massa tempor. 
-			Faucibus a pellentesque sit amet porttitor eget dolor morbi non. 
-			Amet venenatis urna cursus eget nunc scelerisque viverra. Et tortor at risus viverra adipiscing. 
-			Mollis aliquam ut porttitor leo. Eu augue ut lectus arcu bibendum at varius vel. 
-			At elementum eu facilisis sed odio morbi quis. 
-			Sodales ut etiam sit amet nisl purus in. Dictumst quisque sagittis purus sit. 
-			Pharetra massa massa ultricies mi quis hendrerit dolor magna. 
-			Donec adipiscing tristique risus nec feugiat in fermentum posuere urna. 
-			Tempor orci eu lobortis elementum nibh tellus molestie nunc. 
-			Ornare arcu dui vivamus arcu felis bibendum ut. 
-			Arcu odio ut sem nulla pharetra.
+				"Welington, enquanto completava o ensino médio em uma escola estadual, matriculou-
+			se em um curso técnico concomitante no Instituto Federal no turno da noite. Ele é negro e vive
+			em um bairro periférico da região metropolitana, habitado por famílias de baixa renda. Certa
+			vez, realizou o desejo de fazer dreadlock em seu cabelo. Já com o novo penteado, para a sua
+			surpresa, foi abordado por um professor do curso noturno que lhe disse que o seu visual não
+			estava adequado para o ambiente do Instituto e poderia lhe trazer dificuldades futuras no
+			mercado de trabalho. Em seu depoimento, Welington trouxe inúmeros sentimentos à tona
+			que traduziam os efeitos permanentes dessa violenta interação em sua auto-estima. A história
+			permaneceu em silêncio durante anos. Somente como egresso, por ocasião de um projeto de
+			extensão, ela foi compartilhada com o Neabi."
 			<br>
-			Malesuada proin libero nunc consequat interdum varius sit amet mattis. 
-			Nisl condimentum id venenatis a condimentum. Eget nullam non nisi est. 
-			In cursus turpis massa tincidunt dui ut. Ut morbi tincidunt augue interdum velit. 
-			Neque egestas congue quisque egestas diam. Dolor magna eget est lorem ipsum dolor sit. 
-			Eget velit aliquet sagittis id consectetur. 
-			Viverra maecenas accumsan lacus vel facilisis volutpat. 
-			Purus in massa tempor nec feugiat nisl pretium fusce. 
-			Mattis aliquam faucibus purus in massa. 
-			Imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada. 
-			Dolor morbi non arcu risus quis varius quam. 
-			Interdum consectetur libero id faucibus nisl tincidunt eget nullam non. 
-			Enim sit amet venenatis urna cursus eget nunc. 
-			Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. 
-			Nunc id cursus metus aliquam eleifend mi. 
-			Adipiscing commodo elit at imperdiet dui accumsan sit. 
-			Vulputate mi sit amet mauris commodo quis.
+
+			<a href="url" download="arquivos/resposta.pdf">Resposta ao Processo N. 23158.000791/2022-01</a>
+			
 			<br><br><br><br>
 		</p>
 
@@ -108,12 +92,12 @@
 			Larissa Kemile Pereira da Silva <br>
 			Josias Neves Jardins Borba <br>
 			Vitória Isabel Lemos de Mattos <br>
-			Diego Ramiro Araoz Alves (Sociólogo e ex-coordenador do NEABI Campus Serra) <br>
 			Moises Savedra Omena (Projeto Integrador) <br>
 			<br>
 			
 			<b>Professores e Colaboradores Ativos:</b><br>
-			
+
+			Diego Ramiro Araoz Alves (Sociólogo e ex-coordenador do NEABI Campus Serra) <br>
 			Ana Paula Klauck-  Literatura e Língua Portuguesa, coordenadora do NEABI Campus Serra <br>
 			Carlos Lins Borges Azevedo - Desenvolvimento de Sistemas <br>
 			Martha Talita - Programação Web II <br>
