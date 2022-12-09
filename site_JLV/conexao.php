@@ -1,13 +1,13 @@
 <?php
 
-    //estabelecendo as variaveis para conexao com o banco de dados
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $db_name = "banco_siape";
+    //estabelecendo os valores para conexao com o banco de dados
+    define("HOST", "localhost");
+    define("USER", "root");
+    define("PASSWORD", "");
+    define("DB", "banco_siape");
 
     //abrindo a conexao com o banco de dados
-    $connect = mysqli_connect($servername, $username, $password, $db_name);
+    $connect = mysqli_connect(HOST, USER, PASSWORD, DB);
 
     //erro de conexao
     if (mysqli_connect_error()){

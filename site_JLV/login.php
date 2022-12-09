@@ -129,7 +129,7 @@
 		<br>
 
 		<div>
-			<a href="admcadastro.php"> Cadastro de administrador</a>
+			<a href="admcadastro.php"> Não tem uma conta? Cadastre-se agora!</a>
 		</div>
 
 		<br>

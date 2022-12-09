@@ -1,6 +1,6 @@
 <?php
     //chamando os arquivos
-	require("conexao.php");
+	require_once("conexao.php");
 	include("classUsuario.php");
 
     //começando a sessão
@@ -32,9 +32,9 @@
 
 				//Sessão para logar o usuário
 				$_SESSION['logado'] = true;
-				$id = $usuario->getIdUsuario();
+				$siape = $usuario->getSiape();
 				//Sessão para guardar o id do usuário logado
-				$_SESSION['siape'] = $dados['Siape'];
+				$_SESSION['siape'] = $siape;
 				//Manda o usuário para a página principal
 				header('Location: index.php');
                 

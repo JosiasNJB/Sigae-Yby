@@ -9,7 +9,6 @@
 		}
 
 		//chamando o arquivo de conexao
-		require 'conexao.php';
 		
 		//sql query como uma string selecionando todos os dados dos evento na tabela
 		$sqlpublic="SELECT * FROM evento where eventstatus = 0";
@@ -23,7 +22,7 @@
 		$resultado= mysqli_query($connect,$sqlpublic);
         $resultadoprivate= mysqli_query($connect,$sqlprivate);
 
-        if($adm == '1'){
+        if($adm == '2'){
             $admevent = "<h3 class='light'><br><br><br><br> Eventos para administradores </h3>";
         }
         else{
@@ -98,18 +97,15 @@
 				$eventstatadm = "<div class='my-wrapper valign-wrapper center-align'><h5> Parece que não há nenhum evento privado agora, favor volte mais tarde. </h5></div>";
 
 			}
-			elseif(){
-
-			}
 		?>
-        <h3><br>Eventos de administrador</h3>          
+        <h3><br></h3>          
         <table class="depoimento">
 			<?php
 			    /* Enquanto o array que contém os resultados da consulta tiver pelo menos 1 index,
 				"$dadosevent" irá buscar um array contendo os dados do index.
                 */
                 
-                if (mysqli_num_rows($resultadoprivate)>0 and ){
+                if (mysqli_num_rows($resultadoprivate)>0){
                      while($dadosevent =mysqli_fetch_array($resultadoprivate)){
                         $idevent=['id_evento'];
 						$eventname = $dadosevent['eventnom'];

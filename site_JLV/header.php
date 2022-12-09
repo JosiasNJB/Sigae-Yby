@@ -47,6 +47,7 @@
 				
 				//atribuindo valores do array em variaveis
 				$nome = $array[0];
+				//$nome = getNome();
 
 				//diferenciando header para usuarios administradores
 				$img ="src='img/iflogodark.png'";

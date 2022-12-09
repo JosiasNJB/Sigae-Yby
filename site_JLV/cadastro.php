@@ -2,7 +2,7 @@
 		<?php
 
 			//chamando o arquivo de conexao
-			require 'conexao.php';
+			
 			//isset determina que o botao foi ativado.
 			if(isset($_POST['btn_Send'])){
 
