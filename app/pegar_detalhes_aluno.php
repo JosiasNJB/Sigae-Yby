@@ -45,9 +45,11 @@ if(autenticar($db_con)) {
 	 
 				$resposta["nome"] = $linha["nome"];
 				$resposta["matricula"] = $linha["matricula"];
-				$resposta["email"] = $linha["email"];
-				$resposta["telefone"] = $linha["telefone"];
 				$resposta["assistencia"] = $linha["assistencia"];
+				$resposta["etnia"] = $linha["etnia"];
+				$resposta["renda"] = $linha["renda"];
+				$resposta["cota"] = $linha["cota"];
+				$resposta["telefone"] = $linha["telefone"];
 
 				
 				// Caso o aluno exista no BD, o cliente 

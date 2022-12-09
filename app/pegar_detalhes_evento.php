@@ -1,8 +1,8 @@
 <?php
  
 /*
- * O codigo seguinte retorna os dados detalhados de um produto.
- * Essa e uma requisicao do tipo GET. Um produto e identificado 
+ * O codigo seguinte retorna os dados detalhados de um evento.
+ * Essa e uma requisicao do tipo GET. Um evento e identificado 
  * pelo campo id.
  */
 
@@ -24,29 +24,31 @@ if(autenticar($db_con)) {
 		// Aqui sao obtidos os parametros
 		$id = $_GET['id'];
 	 
-		// Obtem do BD os detalhes do produto com id especificado na requisicao GET
-		$consulta = $db_con->prepare("SELECT * FROM produtos WHERE id = $id");
+		// Obtem do BD os detalhes do evento com id especificado na requisicao GET
+
+		$consulta = $db_con->prepare("SELECT * FROM produtos WHERE id = $id"); // QUAL É??? JOSIAAS
 	 
 		if ($consulta->execute()) {
 			if ($consulta->rowCount() > 0) {
 	 
-				// Se o produto existe, os dados completos do produto 
+				// Se o evento existe, os dados completos do evento 
 				// sao adicionados no array de resposta. A imagem nao 
 				// e entregue agora pois ha um php exclusivo para obter 
-				// a imagem do produto.
+				// a imagem do evento.
 				$linha = $consulta->fetch(PDO::FETCH_ASSOC);
 	 
-				$resposta["tipo"] = $linha["tipo"];
-				$resposta["data"] = $linha["data"];
-				$resposta["quem"] = $linha["quem"];
-				$resposta["descricao"] = $linha["descricao"];
-				
-				// Caso o produto exista no BD, o cliente 
+				$resposta["idevento"] = $linha["idevento"];
+				$resposta["evento"] = $linha["evento"];
+				$resposta["tema"] = $linha["tema"];
+				$resposta["descevent"] = $linha["descevent"];
+				$resposta["eventstatus"] = $linha["eventstatus"];
+			
+				// Caso o evento exista no BD, o cliente 
 				// recebe a chave "sucesso" com valor 1.
 				$resposta["sucesso"] = 1;
 				
 			} else {
-				// Caso o produto nao exista no BD, o cliente 
+				// Caso o evento nao exista no BD, o cliente 
 				// recebe a chave "sucesso" com valor 0. A chave "erro" indica o 
 				// motivo da falha.
 				$resposta["sucesso"] = 0;
@@ -71,7 +73,7 @@ if(autenticar($db_con)) {
 else {
 	// senha ou usuario nao confere
 	$resposta["sucesso"] = 0;
-	$resposta["error"] = "usuario ou senha não confere";
+	$resposta["error"] = "idevento, evento, tema, descevent ou eventstatus não confere";
 }
 // Fecha a conexao com o BD
 $db_con = null;

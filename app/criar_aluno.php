@@ -28,24 +28,21 @@ if(autenticar($db_con)) {
 	// assistencia - se o aluno recebe assistência estudantil ------> DÚVIDA SE É POST
 	// etnia - etnia do aluno
 
-	if (isset($_POST['nome']) && isset($_POST['matricula']) && isset($_POST['email']) && isset($_POST['telefone']) 
-	&& isset($_POST['assistencia']) && isset($_POST['etnia'])) {
+	if (isset($_POST['nome']) && isset($_POST['matricula']) && isset($_POST['assistencia']) && isset($_POST['etnia']) && isset($_POST['renda']) && isset($_POST['cota'])) {
 
-		//POST
-		//GET
-		//FILES
-		
 		// Aqui sao obtidos os parametros
 		$nome = $_POST['nome'];
 		$preco = $_POST['matricula'];
-		$email = $_POST['email'];
-		$telefone = $_POST['telefone']
 		$assistencia = $_POST['assistencia']
 		$etnia = $_POST['etnia']
+		$email = $_POST['renda'];
+		$telefone = $_POST['cota']
 
 		// A proxima linha insere um novo aluno no BD.
 		// A variavel consulta indica se a insercao foi feita corretamente ou nao.
-		$consulta = $db_con->prepare("INSERT INTO alunos(nome, matricula, email, telefone, assistencia, etnia) VALUES('$nome', '$matricula', '$email', '$telefone', '$assistencia', '$etnia')");
+
+		// INSERT INTO alunos É OQ??? TEM QUE MUDAR?
+		$consulta = $db_con->prepare("INSERT INTO alunos(nome, matricula, assistencia, etnia, renda, cota) VALUES('$nome', '$matricula', '$assistencia', '$etnia', '$renda', '$cota')");
 		if ($consulta->execute()) {
 
 			// Se o aluno foi inserido corretamente no servidor, o cliente 
@@ -71,9 +68,9 @@ if(autenticar($db_con)) {
 	}
 }
 else {
-	// senha ou usuario nao confere
+	// nome, matricula, assistencia, etnia, renda ou cota nao conferem
 	$resposta["sucesso"] = 0;
-	$resposta["erro"] = "usuario ou senha não confere";
+	$resposta["erro"] = "nome, matricula, assistencia, etnia, renda ou cota nao conferem";
 }
 
 // Fecha a conexao com o BD

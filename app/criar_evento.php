@@ -26,21 +26,27 @@ if(autenticar($db_con)) {
 	// para quem - público ou privado
 	// descricao - descricao a respeito do que se trata o evento
 
-	if (isset($_POST['tipo']) && isset($_POST['quando']) && isset($_POST['paraQuem']) && isset($_POST['descricao'])) {
+	// idevento VAI ENTRAR MESMO?
+
+	if (isset($_POST['idevento']) $_POST['evento']) && isset($_POST['tema']) && isset($_POST['descevent']) && isset($_POST['eventstatus']) {
 
 		//POST
 		//GET
 		//FILES
 		
 		// Aqui sao obtidos os parametros
-		$tipo = $_POST['tipo'];
-		$quando = $_POST['quando'];
-		$paraQuem = $_POST['paraQuem'];
-		$descricao = $_POST['descricao']
+		$tipo = $_POST['idevento'];
+		$quando = $_POST['evento'];
+		$paraQuem = $_POST['tema'];
+		$descricao = $_POST['descevent']
+		$descricao = $_POST['eventstatus']
+
 
 		// A proxima linha insere um novo evento no BD.
 		// A variavel consulta indica se a insercao foi feita corretamente ou nao.
-		$consulta = $db_con->prepare("INSERT INTO eventos(tipo, quando, paraQuem, descricao) VALUES('$tipo', '$quando', '$paraQuem', '$descricao')");
+
+		//EVENTOS CORRESPONDE A ENTIDADE DO MODELO CONCEITUAL?
+		$consulta = $db_con->prepare("INSERT INTO eventos(idevento, evento, tema, descevent, eventstatus) VALUES('$idvento', '$evento', '$tema', '$descevent', '$eventstatus')");
 		if ($consulta->execute()) {
 
 			// Se o evento foi inserido corretamente no servidor, o cliente 
@@ -67,9 +73,9 @@ if(autenticar($db_con)) {
 	}
 }
 else {
-	// senha ou usuario nao confere
+	// idevento, evento, tema, descevent ou eventstatus não confere
 	$resposta["sucesso"] = 0;
-	$resposta["erro"] = "usuario ou senha não confere";
+	$resposta["erro"] = "idevento, evento, tema, descevent ou eventstatus não confere";
 }
 
 // Fecha a conexao com o BD

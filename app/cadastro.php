@@ -20,21 +20,24 @@ if(autenticar($db_con)) {
 	// Primeiro, verifica-se se todos os parametros foram enviados pelo cliente.
 	// A criacao de um administrador precisa dos seguintes parametros:
 
-	// email - preco do admnistrador
+	// email - email do admnistrador
 	// siape - SIAPE do admnistrador
-	// senha - senha do administrador -->  PRECISA DE OUTRA VARIÁVEL PARA A CONFIRMACAO?
+	// senha - senha do administrador 
+	// telefone - telefone do administrador
 
-	if (isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['siape']) && isset($_POST['senha'])) {
+	if (isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['siape']) && isset($_POST['senha']) $_POST['telefone']) { //PRECISA ESTAR NA MESMA ORDEM do modelo conceitual?
 		
 		// Aqui sao obtidos os parametros
 		$nome = $_POST['nome'];
 		$email = $_POST['email'];
 		$siape = $_POST['siape'];
 		$siape = $_POST['senha'];
+		$siape = $_POST['telefone'];
+
 		
 		// A proxima linha insere um novo aluno no BD.
 		// A variavel consulta indica se a insercao foi feita corretamente ou nao.
-		$consulta = $db_con->prepare("INSERT INTO cadastro(nome, email, siape, senha) VALUES('$nome', '$email', '$siape', '$senha')");
+		$consulta = $db_con->prepare("INSERT INTO cadastro(nome, email, siape, senha, telefone) VALUES('$nome', '$email', '$siape', '$senha', '$telefone')");
 		if ($consulta->execute()) {
 			// Se o admnistrador foi inserido corretamente no servidor, o cliente 
 			// recebe a chave "sucesso" com valor 1
@@ -58,7 +61,7 @@ if(autenticar($db_con)) {
 else {
 	// senha ou usuario nao confere
 	$resposta["sucesso"] = 0;
-	$resposta["erro"] = "usuario ou senha não confere";
+	$resposta["erro"] = "nome, email, siape, senha ou telefone não confere";
 }
 
 // Fecha a conexao com o BD

@@ -25,7 +25,7 @@ if(autenticar($db_con)) {
 		$id = $_GET['id'];
 	 
 		// Obtem do BD os detalhes do item de histórico do aluno com id especificado na requisicao GET
-		$consulta = $db_con->prepare("SELECT * FROM produtos WHERE id = $id");
+		$consulta = $db_con->prepare("SELECT * FROM produtos WHERE id = $id"); /// JOSIAS
 	 
 		if ($consulta->execute()) {
 			if ($consulta->rowCount() > 0) {
@@ -35,9 +35,12 @@ if(autenticar($db_con)) {
 				$linha = $consulta->fetch(PDO::FETCH_ASSOC);
 	 
 				$resposta["titulo"] = $linha["titulo"];
-				$resposta["descricao"] = $linha["descricao"];
-				$resposta["data"] = $linha["data"];
-				
+				$resposta["deschist"] = $linha["deschist"];
+				$resposta["fk_USUARIO_Siape"] = $linha["fk_USUARIO_Siape"];
+				$resposta["horahist"] = $linha["horahist"];
+				$resposta["idHist"] = $linha["idHist"];
+				$resposta["fk_ALUNO_matricula"] = $linha["fk_ALUNO_matricula"];
+
 				// Caso o item de histórico do aluno exista no BD, o cliente 
 				// recebe a chave "sucesso" com valor 1.
 				$resposta["sucesso"] = 1;
@@ -68,7 +71,7 @@ if(autenticar($db_con)) {
 else {
 	// senha ou usuario nao confere
 	$resposta["sucesso"] = 0;
-	$resposta["error"] = "usuario ou senha não confere";
+	$resposta["error"] = "titulo, deschist, fk_USUARIO_Siape, horahist, idHist ou fk_ALUNO_matricula não confere";
 }
 // Fecha a conexao com o BD
 $db_con = null;
