@@ -50,9 +50,9 @@
                             <td><?php echo $dados['nome'];?></td>
                             <td><?php echo $dados['email'];?></td>
                             <td><?php echo $dados['descetnia'];?></td>
-                            <td><a class="btn waves-effect waves-light red darken-4" href="delete.php?id=<?php echo $dados['id_pessoa'];?>"> Delete</td>
+                            <td><a class="btn waves-effect waves-light red darken-4" href="deletealuno.php?id=<?php echo $dados['matricula'];?>"> Delete</td>
 
-                            <td><a class="btn waves-effect waves-light green accent-4" href="update.php?id=<?php echo $dados['id_pessoa'];?>"> Update</td>
+                            <td><a class="btn waves-effect waves-light green accent-4" href="updatealuno.php?id=<?php echo $dados['matricula'];?>"> Update</td>
                         </tr>
 
                         

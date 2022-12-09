@@ -1,5 +1,6 @@
 
 		<?php
+			/*
 			//iniciando a sessao caso ainda nao haja uma inicializada
 			if (session_status() === PHP_SESSION_NONE) {
 				session_start();
@@ -41,7 +42,7 @@
 					/* Está retornando, de dentro da tabela representada pela variável "$connect",
 					um array que contém todos os resultados que atendem aos requisitos da consulta
 					dentro de "$sql".
-					*/
+					
 					$resultado = mysqli_query($connect, $sql);
 
 
@@ -49,7 +50,7 @@
 					"$dados" irá buscar um array contendo os dados do index,
 					então ele salva um boolean que diz que o usuário está logado
 					e salva o id do usuário, também redireciona para a pagina de inicio.
-					*/
+					
 					if (mysqli_num_rows($resultado) > 0){
 						
 						$dados = mysqli_fetch_array($resultado);
@@ -65,6 +66,7 @@
 					}
 				}
 			}
+			*/
 				
 			//chamando o header na pagina	
 			include_once 'header.php';		
@@ -77,7 +79,7 @@
 			<br><br>
 			<!-- a tag <form> possibilita o uso de formularios -->
 
-			<form class="col m6 " method="post">
+			<form class="col m6 " action="logging.php" method="post">
 
 				<!-- <div> é a tag usada para dividir e organizar o documento -->
 				<div class="row">

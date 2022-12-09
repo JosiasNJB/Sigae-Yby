@@ -1,17 +1,20 @@
 <?php
-    class Pessoa extends CRUD{
+
+    require_once 'conexao.php';
+    require_once 'classCrud.php';
+    include_once 'classDatabase.php';
+           
+    class Usuario extends CRUD{
 
         protected $table ='usuario';
 	
-        private $idUsuario;
+        private $siape;
         private $nome;
         private $senha;
-        private $nascimento;
-        private $sobrenome;
         private $email;
 
         public function setSiape($siape){
-            $this->senha = $senha;
+            $this->siape = $siape;
         }
         public function getSiape(){
             return $this->siape;
@@ -39,9 +42,9 @@
         }
 
         public function login() {
-            $sql = "SELECT * FROM usuario WHERE email = :email and senha = :senha";
+            $sql = "SELECT * FROM usuario WHERE Siape = :siape and senha = :senha";
             $stmt = Database::prepare($sql);
-            $stmt->bindParam(":email", $this->email);
+            $stmt->bindParam(":siape", $this->siape);
             $stmt->bindParam(":senha", $this->senha);
             $stmt->execute();
 
@@ -51,18 +54,9 @@
         public function insertuser(){
             $sql="INSERT INTO $this->table (siape, nome, email, senha, telefone) VALUES (:siape,:nome,:email,:senha,:telefone)";
             $stmt = Database::prepare($sql);
+            $stmt->bindParam(':siape', $this->siape);
             $stmt->bindParam(':nome', $this->nome);
-            $stmt->bindParam(':matricula', $this->matricula;)
-            $stmt->bindParam(':email', $this->email);
-            $stmt->bindParam(':senha', $this->senha);
-
-            return $stmt->execute();
-        }
-        public function insertaluno(){
-            $sql="INSERT INTO $this->table (matricula, nome, email, senha, FK_ETNIA_id_etnia) VALUES (:matricula,:nome,:email,:senha,:etnia)";
-            $stmt = Database::prepare($sql);
-            $stmt->bindParam(':nome', $this->nome);
-            $stmt->bindParam(':matricula', $this->matricula;)
+            $stmt->bindParam(':telefone', $this->telefone);
             $stmt->bindParam(':email', $this->email);
             $stmt->bindParam(':senha', $this->senha);
 
