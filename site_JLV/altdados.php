@@ -1,8 +1,5 @@
 		<?php
 
-			//chamando o arquivo de conexao
-			
-			
 			//chamando o header na pagina	
 			include_once 'header.php';
 
@@ -29,7 +26,7 @@
                     <?php
                         
                         //sql query como uma string selecionando todos os dados dos usuarios na tabela
-                        $sql="SELECT id_pessoa, nome, email, descetnia FROM pessoa p inner join etnia e where FK_ETNIA_id_etnia = id_etnia";
+                        $sql="SELECT * FROM aluno a inner join etnia e where FK_ETNIA_id_etnia = id_etnia";
                         
 
                         /* Está retornando, de dentro da tabela representada pela variável "$connect",

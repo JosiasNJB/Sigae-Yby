@@ -6,8 +6,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-//chamando o arquivo de conexao
-require 'conexao.php';
 
 include_once 'header.php';
 

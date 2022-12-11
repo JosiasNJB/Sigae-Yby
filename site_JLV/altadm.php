@@ -2,7 +2,6 @@
 
 //chamando o arquivo de conexao
 
-
 //chamando o header na pagina	
 include_once 'header.php';
 

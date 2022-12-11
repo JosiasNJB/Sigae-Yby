@@ -12,6 +12,7 @@
         private $nome;
         private $senha;
         private $email;
+        private $tel;
 
         public function setSiape($siape){
             $this->siape = $siape;
@@ -25,6 +26,13 @@
         }
         public function getNome(){
             return $this->nome;
+        }
+
+        public function setTel($tel){
+            $this->tel = $tel;
+        }
+        public function getTel(){
+            return $this->tel;
         }
 
         public function setEmail($email){
@@ -52,11 +60,11 @@
         }
 
         public function insertuser(){
-            $sql="INSERT INTO $this->table (siape, nome, email, senha, telefone) VALUES (:siape,:nome,:email,:senha,:telefone)";
+            $sql="INSERT INTO $this->table (siape, nome, email, senha, telefone) VALUES (:siape,:nome,:email,:senha,:tel)";
             $stmt = Database::prepare($sql);
             $stmt->bindParam(':siape', $this->siape);
             $stmt->bindParam(':nome', $this->nome);
-            $stmt->bindParam(':telefone', $this->telefone);
+            $stmt->bindParam(':tel', $this->tel);
             $stmt->bindParam(':email', $this->email);
             $stmt->bindParam(':senha', $this->senha);
 

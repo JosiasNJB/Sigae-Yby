@@ -6,9 +6,6 @@
 				session_start();
 			}
 
-			//chamando o arquivo de conexao
-			require 'conexao.php';
-
 			//isset determina que o botao foi ativado.
 			if (isset($_POST['btn_login'])){
 
@@ -108,12 +105,14 @@
 				<div>
 					<ul>
 						<?php
-							if(!empty($erros)){
-								foreach($erros as $erro){
+							//imprimindo os erros
+							if(!empty($_SESSION['erros'])){
+								foreach($_SESSION['erros'] as $erro){
 									echo $erro;
 
 								}
 							}
+							$_SESSION['erros'] = array();
 						?>
 					</ul>
 				</div>

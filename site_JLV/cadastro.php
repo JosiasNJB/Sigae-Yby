@@ -1,8 +1,6 @@
 
 		<?php
 
-			//chamando o arquivo de conexao
-			
 			//isset determina que o botao foi ativado.
 			if(isset($_POST['btn_Send'])){
 
@@ -113,7 +111,40 @@
 				</div>
 
 				<br>
-				<p class="centerp">Como você se autodeclara?&nbsp;</p>
+				<br>
+				<br>
+				<p class="centerp"><b>Status de matricula&nbsp;</b></p>
+				<br>
+				<div class="input-field col s4">
+					
+					<br>
+	
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="statmatricula" type="radio" value="1"/>
+						  <span>Trancado</span>
+						</label>
+					</p>
+	
+					<p class="centerp">
+						<label>
+						  <input class="with-gap pull-s1" name="statmatricula" type="radio" value="2" />
+						  <span>Cursando</span>
+						</label>
+					</p>
+	
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="statmatricula" type="radio" value="3" />
+						  <span>Desistente</span>
+						</label>
+					</p>
+				</div>
+
+				<br>
+				<br>
+				<br>
+				<p class="centerp"><b>Etnia&nbsp;</b></p>
 				<br>
 				<div class="input-field col s4">
 					
@@ -156,7 +187,99 @@
 					</p>
 				</div>
 
+				<br>
+				<br>
+				<br>
+				<p class="centerp"><b>Curso&nbsp;</b></p>
+				<br>
+				<div class="input-field col s4">
+					
+					<br>
+	
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="curso" type="radio" value="1"/>
+						  <span>Informática para Internet</span>
+						</label>
+					</p>
+	
+					<p class="centerp">
+						<label>
+						  <input class="with-gap pull-s1" name="curso" type="radio" value="2" />
+						  <span>Mecatrônica</span>
+						</label>
+					</p>
+	
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="curso" type="radio" value="3" />
+						  <span>IOT</span>
+						</label>
+					</p>
 
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="curso" type="radio" value="4" />
+						  <span>Automação</span>
+						</label>
+					</p>
+
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="curso" type="radio" value="5" />
+						  <span>Sistemas de Informação</span>
+						</label>
+					</p>
+				</div>
+
+				<br>
+				<br>
+				<br>
+				<p class="centerp"><b>Valor de renda&nbsp;</b></p>
+				<br>
+				<div class="input-field col s4">
+					
+
+					<br>
+	
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="renda" type="radio" value="1"/>
+						  <span>De 0 a 2 salarios minimos</span>
+						</label>
+					</p>
+	
+					<p class="centerp">
+						<label>
+						  <input class="with-gap pull-s1" name="renda" type="radio" value="2" />
+						  <span>De 2 a 5 salarios minimos</span>
+						</label>
+					</p>
+	
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="renda" type="radio" value="3" />
+						  <span>De 5 a 8 salarios minimos</span>
+						</label>
+					</p>
+
+                    <p class="centerp">
+						<label>
+						  <input class="with-gap" name="renda" type="radio" value="4" />
+						  <span>8 a 10 salarios minimos</span>
+						</label>
+					</p>
+	
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="renda" type="radio" value="5"/>
+						  <span>Mais de 10 salarios minimos</span>
+						</label>
+					</p>
+				</div>
+				
+				<br>
+				<br>
 				<br>
 
 				<div class="btnSubmit">

@@ -1,82 +1,5 @@
 
 		<?php
-
-			//chamando o arquivo de conexao
-			require 'conexao.php';
-			//isset determina que o botao foi ativado.
-			if(isset($_POST['btn_Send'])){
-
-				//inicializando array de erros
-				$erros = array();
-
-				//obtendo os valores dos formularios via post
-				$siape = $_POST['siape'];
-				$nome=$_POST['nome'];
-				$telefone = $_POST['telefone'];
-				$email=$_POST['email'];
-				$senha = $_POST['senha'];
-
-				//metodo temporario de implementar administrador
-				$admsenha = "123456789";
-
-				
-
-				//preenchendo o array de erros
-
-				if(empty($siape)){
-					$erros[] = "<li>O campo siape precisa ser preenchido</li>";
-				}
-
-				if(empty($nome)){
-					$erros[] = "<li>O campo nome precisa ser preenchido</li>";
-				}
-
-				if(empty($telefone)){
-					$erros[] = "<li>O campo telefone precisa ser preenchido</li>";
-				}
-
-				if(empty($email)){
-					$erros[] = "<li>O campo email precisa ser preenchido</li>";
-				}
-				else{
-					//usando filtros de validacao
-					if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-						$erros[] = "<li>O campo email precisa ser preenchido corretamente</li>";
-					}
-				}
-
-				if(empty($senha)){
-					$erros[] = "<li>O campo senha precisa ser preenchido</li>";
-				}
-
-				//metodo temporario de implementar administrador
-				if($admsenha != $_POST['admsenha']){
-					$erros[] = "<li>Senha de administrador não confere.</li>";
-					
-				}
-				
-				if(empty($erros)){
-					//usando filtros
-					$nome=filter_var($nome, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-				
-					//criptografando a senha
-					$senha=md5($senha);
-					
-					//Sql query para inserir os valores obtidos na tabela
-					$sql="INSERT INTO usuario(siape, nome, email, senha, telefone) VALUES('$siape', '$nome', '$email', '$senha', '$telefone');";
-					
-					/*Msqli_query aplica a string "$sql"
-					e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
-					*/ 
-					if (mysqli_query($connect, $sql)){
-						header('location: login.php');
-					}
-					else{
-						header('location: admcadastro.php');
-					}
-				}
-			}
-
 			//chamando o header na pagina	
 			include_once 'header.php';
 
@@ -88,7 +11,7 @@
 
         <section>
 			<!-- a tag <form> possibilita o uso de formularios -->
-			<form class="col s12" method="post">
+			<form class="col s12" action="criarUsuario.php" method="post">
 
 				<!-- <div> é a tag usada para dividir e organizar o documento -->
 
@@ -114,7 +37,7 @@
 					</div>
 
 					<div class="input-field col s5 pull-s1">
-						<input id="telefone" type="text" class="validate" name="telefone">
+						<input id="telefone" type="tel" class="validate" name="telefone">
 						<label for="telefone">Telefone</label>
 					</div>
 				</div>
@@ -144,12 +67,13 @@
 					<ul>
 						<?php
 							//imprimindo os erros
-							if(!empty($erros)){
-								foreach($erros as $erro){
+							if(!empty($_SESSION['erros'])){
+								foreach($_SESSION['erros'] as $erro){
 									echo $erro;
 
 								}
 							}
+							$_SESSION['erros'] = array();
 						?>
 					</ul>
 				</div>

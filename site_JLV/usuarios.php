@@ -35,9 +35,6 @@
                         if (session_status() === PHP_SESSION_NONE) {
                             session_start();
                         }
-
-                        //chamando o arquivo de conexao
-                        require 'conexao.php';
                         
                         //sql query como uma string selecionando todos os dados dos usuarios na tabela
                         $sql="SELECT * FROM user";

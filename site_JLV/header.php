@@ -47,7 +47,6 @@
 				
 				//atribuindo valores do array em variaveis
 				$nome = $array[0];
-				//$nome = getNome();
 
 				//diferenciando header para usuarios administradores
 				$img ="src='img/iflogodark.png'";
@@ -104,8 +103,8 @@
 				<li><a class='menuheader' href="graph.php">Gráficos</a></li>
 				<!-- <li><a href="usuarios.php">Usuários</a></li> -->
 				<li><a class='menuheader' href='eventos.php'> Eventos</a></li>
-				<?php echo $dep; ?>
-				<?php echo $aluno; ?>
+				<?php //echo $dep; ?>
+				<?php //echo $aluno; ?>
 				<?php echo $onoff; ?>
 				<?php echo $admpag; ?>
 				<?php echo $perfil; ?>

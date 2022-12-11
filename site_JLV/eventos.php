@@ -22,7 +22,7 @@
 		$resultado= mysqli_query($connect,$sqlpublic);
         $resultadoprivate= mysqli_query($connect,$sqlprivate);
 
-        if($adm == '2'){
+        if($adm == '1'){
             $admevent = "<h3 class='light'><br><br><br><br> Eventos para administradores </h3>";
         }
         else{
@@ -93,12 +93,19 @@
 		</table>
 
 		<?php
-			if($_SESSION['logado'] == true and mysqli_num_rows($resultadoprivate)==0){
+			if($_SESSION['logado'] == false){
+				$eventstatadm = "";
+
+			}
+			elseif($_SESSION['logado'] == true and mysqli_num_rows($resultadoprivate)==0){
 				$eventstatadm = "<div class='my-wrapper valign-wrapper center-align'><h5> Parece que não há nenhum evento privado agora, favor volte mais tarde. </h5></div>";
 
 			}
-		?>
-        <h3><br></h3>          
+			else{
+				$eventstatadm = "<h3><br>Eventos de administrador</h3>";
+			}
+			echo $eventstatadm;
+		?>         
         <table class="depoimento">
 			<?php
 			    /* Enquanto o array que contém os resultados da consulta tiver pelo menos 1 index,

@@ -6,9 +6,6 @@
 				session_start();
 			}
 
-			//chamando o arquivo de conexao
-			require 'conexao.php';
-
 			include_once 'header.php';
 
 			//obtendo id do usuario selecionado via get	
@@ -21,8 +18,8 @@
 			$sql2="SELECT * FROM usuario WHERE Siape = $siape2;";
 			$resultado= mysqli_query($connect,$sql2);
 			$array2 = mysqli_fetch_array($resultado);
-
-			$placehsiape = $array2['Siape'];
+			//var_dump($array2);
+			$placehsiape =  $array2['Siape'];
 			$placehname = $array2['nome'];
 			$placehemail = $array2['email'];
 			$placehtel = $array2['telefone'];
@@ -34,7 +31,7 @@
 				$erros = array();
 
 				//Criando e atribuindo às respectivas variaveis os valores inseridos nos campos do formulario.
-				$siape=$_POST['Siape'];
+				$siape=$_POST['siape'];
 				$nome=$_POST['nome'];
 				$email=$_POST['email'];
 				$senha = $_POST['senha'];
@@ -102,7 +99,7 @@
 				<!-- <div> é a tag usada para dividir e organizar o documento -->
 				<div class="row">
 					<div class="input-field col s10 pull-s1">
-						  <input id="siape" type="number" class="validate" name="siape" value="<?php echo $placehsiape; ?> ">
+						  <input id="siape" type="text" class="validate" name="siape" value="<?php echo $placehsiape; ?> ">
 						  <label for="siape">Siape</label>
 					</div>
 				</div>
@@ -115,7 +112,7 @@
 					</div>
 
 					<div class="input-field col s5 pull-s1">
-						<input id="telefone" type="text" class="validate" name="telefone" value="<?php echo $placehtel; ?> ">
+						<input id="telefone" type="tel" class="validate" name="telefone" value="<?php echo $placehtel; ?> ">
 						<label for="telefone">Telefone</label>
 					</div>
 				</div>

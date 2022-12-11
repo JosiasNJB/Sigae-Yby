@@ -8,8 +8,6 @@
 			session_start();
 		}
 
-		//chamando o arquivo de conexao
-		
 		
 		//sql query como uma string selecionando todos os dados dos depoimentos na tabela
 		$sql="SELECT * FROM depoimento";
