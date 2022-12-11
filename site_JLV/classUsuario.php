@@ -71,6 +71,17 @@
             return $stmt->execute();
         }
 
+        public function update($siape){
+            $sql="UPDATE $this->table SET nome = :nome, email = :email , senha = :senha , telefone = :tel WHERE Siape = :siape ";
+            $stmt = Database::prepare($sql);
+            $stmt->bindParam(':nome', $this->nome);
+            $stmt->bindParam(':email', $this->email);
+            $stmt->bindParam(':senha', $this->senha);
+            $stmt->bindParam(':tel', $this->tel);
+            $stmt->bindParam(':siape', $siape, PDO::PARAM_INT);
+            return $stmt->execute();
+        }
+
     }
 
 ?>
