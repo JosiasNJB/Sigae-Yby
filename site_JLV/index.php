@@ -24,12 +24,12 @@
 		<h3>Relatos</h3>
 			
 		<br>
-		
+
 		
 		
 		<!-- Texto de depoimento -->
 		<p class="manifesto">
-				"Welington, enquanto completava o ensino médio em uma escola estadual, matriculou-
+			"Welington, enquanto completava o ensino médio em uma escola estadual, matriculou-
 			se em um curso técnico concomitante no Instituto Federal no turno da noite. Ele é negro e vive
 			em um bairro periférico da região metropolitana, habitado por famílias de baixa renda. Certa
 			vez, realizou o desejo de fazer dreadlock em seu cabelo. Já com o novo penteado, para a sua
@@ -39,10 +39,8 @@
 			que traduziam os efeitos permanentes dessa violenta interação em sua auto-estima. A história
 			permaneceu em silêncio durante anos. Somente como egresso, por ocasião de um projeto de
 			extensão, ela foi compartilhada com o Neabi."
-
-			<br>
-			
-				"Ao reforçar o convite para participação de uma turma do ensino técnico integrado em
+			<br><br><br>
+			"Ao reforçar o convite para participação de uma turma do ensino técnico integrado em
 			uma atividade lúdica de um evento de celebração do mês da Consciência Negra, um dos
 			organizadores da ação recebe como retorno de uma professora, branca, a informação de que
 			o evento conflitava com uma prova previamente marcada com a turma. A decisão de manter o
@@ -54,7 +52,7 @@
 			possuírem direitos em decorrência da possibilidade da dupla-cidadania."
 
 			<br>
-				<a href="url" download="arquivos/resposta.pdf">Resposta ao Processo N. 23158.000791/2022-01</a>
+				<a href="https://drive.google.com/file/d/17eCQSAv_IU7dvVTvfRmGYea55TYXqk9R/view?usp=sharing">Resposta ao Processo N. 23158.000791/2022-01</a>
 			<br><br><br><br>
 		</p>
 

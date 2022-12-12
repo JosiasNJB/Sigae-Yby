@@ -47,21 +47,21 @@
 				}
 
 				if(isset($_POST['cota'])){
-					$cota = $_POST['cota'];
+					$cota = intval($_POST['cota']);
 				}
 				else{
 					$erros[] = "<li class ='center'>O campo cota precisa ser preenchido</li>";
 				}
 
 				if(isset($_POST['curso'])){
-					$curso = $_POST['curso'];
+					$curso = intval($_POST['curso']);
 				}
 				else{
 					$erros[] = "<li class ='center'>O campo curso precisa ser preenchido</li>";
 				}
 
 				if(isset($_POST['renda'])){
-					$renda = $_POST['renda'];
+					$renda = intval($_POST['renda']);
 				}
 				else{
 					$erros[] = "<li class ='center'>O campo renda precisa ser preenchido</li>";
@@ -73,12 +73,15 @@
 					$nome=filter_var($nome, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
 
 					//Sql query para inserir os valores obtidos na tabela 
-					$sql="INSERT INTO aluno(Matricula, Nome, FK_ETNIA_id_etnia, FK_COTA_id_Cota, FK_RENDA_id_Renda) VALUES('$matricula', '$nome');";
-					//var_dump($sql);
+					$sql="INSERT INTO aluno(Matricula, Nome, FK_ETNIA_id_etnia) VALUES('$matricula', '$nome', $etnia);";
+					//var_dump($sql); FK_COTA_id_Cota, FK_RENDA_id_Renda
+
+					var_dump($sql);
 		
 					/*Msqli_query aplica a string "$sql"
 					e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
 					*/ 
+					var_dump($etnia);
 					if(mysqli_query($connect, $sql)){
 						echo 'meupau';
 						//header('location: admpag.php');
