@@ -102,63 +102,34 @@
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="input-field col s10 pull-s1">
-
-						  <input id="telefone" type="password" class="validate" name="telefone">
-						  <label for="telefone">Telefone</label>
-					</div>
-				</div>
-
 				<br>
 				<br>
-				<br>
-				<p class="centerp"><b>Tipo de cota&nbsp;</b></p>
+				<h6 class="centerp"><b>Possui assistência?&nbsp;</b></h6>
 				<br>
 				<div class="input-field col s4">
 					
+
 					<br>
 	
 					<p class="centerp">
 						<label>
-						  <input class="with-gap" name="statmatricula" type="radio" value="1"/>
-						  <span>Ampla Concorrência</span>
+						  <input class="with-gap" name="assist" type="radio" value="1"/>
+						  <span>Sim</span>
 						</label>
 					</p>
 	
 					<p class="centerp">
 						<label>
-						  <input class="with-gap pull-s1" name="statmatricula" type="radio" value="2" />
-						  <span>Racial</span>
-						</label>
-					</p>
-	
-					<p class="centerp">
-						<label>
-						  <input class="with-gap" name="statmatricula" type="radio" value="3" />
-						  <span>Econômica</span>
+						  <input class="with-gap pull-s1" name="assist" type="radio" value="2" />
+						  <span>Não</span>
 						</label>
 					</p>
 
-					<p class="centerp">
-						<label>
-						  <input class="with-gap" name="statmatricula" type="radio" value="4" />
-						  <span>Necessidade Especial</span>
-						</label>
-					</p>
-
-					<p class="centerp">
-						<label>
-						  <input class="with-gap" name="statmatricula" type="radio" value="5" />
-						  <span>Escolaridade</span>
-						</label>
-					</p>
 				</div>
-
 				<br>
 				<br>
 				<br>
-				<p class="centerp"><b>Etnia&nbsp;</b></p>
+				<h6 class="centerp"><b>Etnia&nbsp;</b></h6>
 				<br>
 				<div class="input-field col s4">
 					
@@ -204,7 +175,52 @@
 				<br>
 				<br>
 				<br>
-				<p class="centerp"><b>Curso&nbsp;</b></p>
+				<h6 class="centerp"><b>Tipo de cota&nbsp;</b></h6>
+				<br>
+				<div class="input-field col s4">
+					
+					<br>
+	
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="statmatricula" type="radio" value="1"/>
+						  <span>Ampla Concorrência</span>
+						</label>
+					</p>
+	
+					<p class="centerp">
+						<label>
+						  <input class="with-gap pull-s1" name="statmatricula" type="radio" value="2" />
+						  <span>Racial</span>
+						</label>
+					</p>
+	
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="statmatricula" type="radio" value="3" />
+						  <span>Econômica</span>
+						</label>
+					</p>
+
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="statmatricula" type="radio" value="4" />
+						  <span>Necessidade Especial</span>
+						</label>
+					</p>
+
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="statmatricula" type="radio" value="5" />
+						  <span>Escolaridade</span>
+						</label>
+					</p>
+				</div>
+
+				<br>
+				<br>
+				<br>
+				<h6 class="centerp"><b>Curso&nbsp;</b></h6>
 				<br>
 				<div class="input-field col s4">
 					
@@ -249,7 +265,7 @@
 				<br>
 				<br>
 				<br>
-				<p class="centerp"><b>Valor de renda&nbsp;</b></p>
+				<h6 class="centerp"><b>Valor de renda&nbsp;</b></h6>
 				<br>
 				<div class="input-field col s4">
 					

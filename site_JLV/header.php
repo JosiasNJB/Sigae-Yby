@@ -93,18 +93,14 @@
 			<div class="menu valign-wrapper">
 
 				<li><a class='menuheader' href="index.php">Home</a></li>
-				<!-- <li><a href="sobre.php">Sobre</a></li> -->
-				
-				<!--<li><a href="contato.php">Contato</a></li>-->
 				<!-- Repurpose depoimentos.php into showing the depoimentos stored in the database
 				maybe make another page that only shows up when the pessoa is logged in to make the depoimentos meant to be stored
 				maybe make a personal pessoa page where you can do the depoimentos and it shows pessoa info
 				and from there you'd be able to log off and alter your own data like on the update page-->
 				<li><a class='menuheader' href="graph.php">Gráficos</a></li>
-				<!-- <li><a href="usuarios.php">Usuários</a></li> -->
 				<li><a class='menuheader' href='eventos.php'> Eventos</a></li>
-				<?php //echo $dep; ?>
-				<?php //echo $aluno; ?>
+				<?php echo $dep; ?>
+				<?php echo $aluno; ?>
 				<?php echo $onoff; ?>
 				<?php echo $admpag; ?>
 				<?php echo $perfil; ?>

@@ -49,7 +49,11 @@
             }
         </script>
 
-        <div class = "chart" id="piechart" style="width: 900px; height: 500px;"></div>
+        
+        <div class='center'>
+            <div class = "chart" id="piechart" style="width: 900px; height: 500px;"></div>
+        </div>
+        
 
 		<!-- chamando o footer na pagina -->	
 		<?php include_once 'footer.php';?>
