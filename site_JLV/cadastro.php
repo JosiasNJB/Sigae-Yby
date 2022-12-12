@@ -113,7 +113,7 @@
 				<br>
 				<br>
 				<br>
-				<p class="centerp"><b>Status de matricula&nbsp;</b></p>
+				<p class="centerp"><b>Tipo de cota&nbsp;</b></p>
 				<br>
 				<div class="input-field col s4">
 					
@@ -122,21 +122,35 @@
 					<p class="centerp">
 						<label>
 						  <input class="with-gap" name="statmatricula" type="radio" value="1"/>
-						  <span>Trancado</span>
+						  <span>Ampla Concorrência</span>
 						</label>
 					</p>
 	
 					<p class="centerp">
 						<label>
 						  <input class="with-gap pull-s1" name="statmatricula" type="radio" value="2" />
-						  <span>Cursando</span>
+						  <span>Racial</span>
 						</label>
 					</p>
 	
 					<p class="centerp">
 						<label>
 						  <input class="with-gap" name="statmatricula" type="radio" value="3" />
-						  <span>Desistente</span>
+						  <span>Econômica</span>
+						</label>
+					</p>
+
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="statmatricula" type="radio" value="4" />
+						  <span>Necessidade Especial</span>
+						</label>
+					</p>
+
+					<p class="centerp">
+						<label>
+						  <input class="with-gap" name="statmatricula" type="radio" value="5" />
+						  <span>Escolaridade</span>
 						</label>
 					</p>
 				</div>

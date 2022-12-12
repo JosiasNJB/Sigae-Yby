@@ -3,17 +3,17 @@
 	
 	abstract class CRUD extends Database{
 		
-		protected $table;
-		protected $id;
+		protected $table = 'usuario';
+		private $siape;
 		protected $buscar;
 
 		//abstract public function insert();
 		//abstract public function update($id);
 		
-		public function  find($id){
-			$sql = "SELECT * FROM $this->table WHERE id = :id";
+		public function  find($siape){
+			$sql = "SELECT * FROM $this->table WHERE Siape = :siape";
 			$stmt = Database::prepare($sql);
-			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->bindParam(':siape', $siape, PDO::PARAM_INT);
 			$stmt->execute();
 
 			return $stmt->fetch(PDO::FETCH_BOTH);

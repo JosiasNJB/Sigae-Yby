@@ -65,17 +65,6 @@ if(isset($_POST['btn_Send'])){
         $usuario->insertuser();
         $_SESSION['erros'] = array();
         header('Location: login.php');
-
-        /*var_dump($siape);
-        if($usuario->insertuser()){
-            $_SESSION['mensagem'] = "Cadastro com sucesso!";
-            header('Location: login.php');
-        }
-        else{
-            $_SESSION['mensagem'] = "Erro ao cadastrar!";
-            header('Location: admcadastro.php');
-        }
-        */
     }
     else{
         $_SESSION['erros'] = $erros;

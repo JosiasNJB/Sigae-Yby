@@ -5,86 +5,29 @@
 			if (session_status() === PHP_SESSION_NONE) {
 				session_start();
 			}
-
+			//chamando o header na pagina
 			include_once 'header.php';
 
+			include_once 'classUsuario.php';
+			
 			//obtendo id do usuario selecionado via get	
 			if(isset($_GET['siape'])){
-				$_SESSION['siape2'] = $_GET['siape'];
-
-			}
-
-			$siape2 = $_SESSION['siape2'];
-			$sql2="SELECT * FROM usuario WHERE Siape = $siape2;";
-			$resultado= mysqli_query($connect,$sql2);
-			$array2 = mysqli_fetch_array($resultado);
-			//var_dump($array2);
-			$placehsiape =  $array2['Siape'];
-			$placehname = $array2['nome'];
-			$placehemail = $array2['email'];
-			$placehtel = $array2['telefone'];
-			
-			//Isset determina que os campos do formulario nao sao nulos.
-			if(isset($_POST['btn_Send'])){
-
-				//inicializando array de erros
-				$erros = array();
-
-				//Criando e atribuindo às respectivas variaveis os valores inseridos nos campos do formulario.
-				$siape=$_POST['siape'];
-				$nome=$_POST['nome'];
-				$email=$_POST['email'];
-				$senha = $_POST['senha'];
-				$tel = $_POST['telefone'];
-				//preenchendo o array de erros
-
-				if(empty($siape)){
-					$erros[] = "<li>O campo siape precisa ser preenchido</li>";
-				}
-
-				if(empty($nome)){
-					$erros[] = "<li>O campo nome precisa ser preenchido</li>";
-				}
-
-				if(empty($email)){
-					$erros[] = "<li>O campo email precisa ser preenchido corretamente</li>";
+				//filter_var retorna false se o parâmetro não for inteiro, e caso contrário retorna um inteiro.
+				$siape=filter_var($_GET['siape'], FILTER_VALIDATE_INT);
+				
+				//Se o id for inteiro, então será consultado o usuario pelo id
+				if ($siape){
+	
+					//instancia o usuario
+					$usuario = new Usuario();	
+					//consulta o usuario pelo id
+					$_SESSION['tableline']= $usuario->find($siape);
+	
 				}
 				else{
-					//usando filtros de validacao
-					if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-						$erros[] = "<li>O campo email precisa ser preenchido corretamente</li>";
-					}
-				}
-				if(empty($tel)){
-					$erros[] = "<li>O campo telefone precisa ser preenchido</li>";
-				}
-
-				if(empty($senha)){
-					$erros[] = "<li>O campo senha precisa ser preenchido</li>";
-				}
-
-				if(empty($erros)){
-
-					//criptografando a senha
-					$senha=md5($senha);
-
-					//Sql query para inserir os valores obtidos na tabela
-					$sql="UPDATE usuario set nome='$nome', email='$email', senha='$senha', telefone='$tel' WHERE Siape = $siape2 ;";
-
-					/*Msqli_query aplica a string "$sql"
-					e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
-					*/ 
-					if (mysqli_query($connect, $sql)){
-						header('location: login.php');
-					}
-					else{
-						header('location: update.php');
-					}
+					$_SESSION['erros'][] = "parâmetro inválido.";
 				}
 			}
-
-
-			//chamando o header na pagina	
 
 		?>
 
@@ -94,12 +37,12 @@
 
         <section>
 			<!-- a tag <form> possibilita o uso de formularios -->
-			<form class="col s12" method="post" >
+			<form class="col s12" action="updateUsuario.php" method="post" >
 
 				<!-- <div> é a tag usada para dividir e organizar o documento -->
 				<div class="row">
 					<div class="input-field col s10 pull-s1">
-						  <input id="siape" type="text" class="validate" name="siape" value="<?php echo $placehsiape; ?> ">
+						  <input id="siape" type="text" name="siape" value="<?php echo $_SESSION['tableline']['Siape']; ?>"readonly>
 						  <label for="siape">Siape</label>
 					</div>
 				</div>
@@ -107,19 +50,19 @@
 				<div class="row">
 					
 					<div class="input-field col s5">
-						<input id="nome" type="text" class="validate" name="nome" value="<?php echo $placehname; ?> ">
+						<input id="nome" type="text" class="validate" name="nome" value="<?php echo $_SESSION['tableline']['nome']; ?> ">
 						<label for="nome">Nome</label>
 					</div>
 
 					<div class="input-field col s5 pull-s1">
-						<input id="telefone" type="tel" class="validate" name="telefone" value="<?php echo $placehtel; ?> ">
+						<input id="telefone" type="tel" class="validate" name="telefone" value="<?php echo $_SESSION['tableline']['telefone']; ?> ">
 						<label for="telefone">Telefone</label>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="input-field col s10 pull-s1">
-					<input id="email" type="text" class="validate" name="email" value="<?php echo $placehemail; ?>">
+					<input id="email" type="text" class="validate" name="email" value="<?php echo $_SESSION['tableline']['email']; ?>">
 						<label for="email">E-Mail</label>
 					</div>
 				</div>
@@ -146,12 +89,13 @@
 					<ul>
 						<?php
 							//imprimindo os erros
-							if(!empty($erros)){
-								foreach($erros as $erro){
+							if(!empty($_SESSION['erros'])){
+								foreach($_SESSION['erros'] as $erro){
 									echo $erro;
 
 								}
 							}
+							$_SESSION['erros'] = array();
 						?>
 					</ul>
 				</div>
