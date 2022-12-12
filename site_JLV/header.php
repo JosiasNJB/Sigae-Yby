@@ -50,7 +50,7 @@
 
 				//diferenciando header para usuarios administradores
 				$img ="src='img/iflogodark.png'";
-				$admpag = "<li><a class='menuheader' href='admpag.php'> Página do Administrador</a></li>";
+				$admpag = "<li><a class='menuheader' href='admpag.php'> Administrador</a></li>";
 				$perfil = "<li><a class='menuheader' href='profile.php'> $nome </li>
 				<li><a href='profile.php'><img class='profile' $img alt='LogoIF'></a></li>";
 				$dep = "<li><a class='menuheader' href='depoimentos.php'>Depoimentos</a></li>";

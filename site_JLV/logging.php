@@ -19,7 +19,7 @@
 		//Condição se os campos de login e senha estão vazios
 		if(empty($siape) or empty($senha)){
 			//Guardando no array de erro
-			$erros[] = "<li> O campo login/senha precisa ser preenchido </li>";
+			$erros[] = "<li class ='center' > O campo login/senha precisa ser preenchido </li>";
 			$_SESSION['erros'] = $erros;
 			header('Location: login.php');
 		}
@@ -43,7 +43,7 @@
             }
 			else{
 				//Avisa que houve um erro com os dados
-				$erros[] = "<li>Usuário e senha não conferem.</li>";
+				$erros[] = "<li class ='center' >Usuário e senha não conferem.</li>";
 				$_SESSION['erros'] = $erros;
                 header('Location: login.php');
             }

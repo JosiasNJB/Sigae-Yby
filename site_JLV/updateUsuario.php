@@ -20,25 +20,25 @@ if(isset($_POST['btn_Send'])){
     //preenchendo o array de erros
 
 	if(empty($nome)){
-		$erros[] = "<li>O campo nome precisa ser preenchido</li>";
+		$erros[] = "<li class ='center'>O campo nome precisa ser preenchido</li>";
 	}
 
 	if(empty($tel)){
-		$erros[] = "<li>O campo telefone precisa ser preenchido</li>";
+		$erros[] = "<li class ='center'>O campo telefone precisa ser preenchido</li>";
 	}
 
 	if(empty($email)){
-		$erros[] = "<li>O campo email precisa ser preenchido</li>";
+		$erros[] = "<li class ='center'>O campo email precisa ser preenchido</li>";
 	}
 	else{
 		//usando filtros de validacao
 		if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-			$erros[] = "<li>O campo email precisa ser preenchido corretamente</li>";
+			$erros[] = "<li class ='center'>O campo email precisa ser preenchido corretamente</li>";
 		}
 	}
 
     if(empty($_POST['senha'])){
-		$erros[] = "<li>O campo senha precisa ser preenchido</li>";
+		$erros[] = "<li class ='center'>O campo senha precisa ser preenchido</li>";
 	}
 
     if(empty($erros)){
@@ -59,26 +59,6 @@ if(isset($_POST['btn_Send'])){
 
     }
 
-	
-	/*instancia o objeto usuario
-	$usuario = new Usuario();
-    $usuario->setSiape($siape);	
-	$usuario->setNome($nome);
-	$usuario->setTel($tel);
-	$usuario->setEmail($email);
-	$usuario->setSenha($senha);
-	
-	
-	//atualiza o usuario
-	if($usuario->update($siape)){
-		$_SESSION['mensagem'] = "Atualizado com sucesso!";
-		header('Location: ../30_DB_index.php');
-    }
-	else{
-		$_SESSION['mensagem'] = "Erro ao atualizar!";
-		header('Location: ../30_DB__index.php');
-    }
-    */
 }
 
 

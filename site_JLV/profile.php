@@ -14,7 +14,8 @@
 			$email = $array[2];
 			$tel = $array[4];
 
-		?>	
+		?>
+		<br><br>	
 		<h2>Pagina de Perfil</h2>
 		<br><br><br>
 		<div class="row">
@@ -40,11 +41,7 @@
 			
 			
 		</div>
-
-		<p class="center"><br><br><a class="btn waves-effect waves-light green accent-4" href="update.php?siape=<?php echo $siape;?>"> Update</a><br></p>
-
-		<p class="center"><br><br><a class="btn waves-effect waves-light red darken-4" href="logout.php">Log Out</a><br><br><br><br></p>
-
+		<br><br>
 
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis venenatis orci sed feugiat. Integer finibus justo eu nisi vestibulum venenatis. Duis eu consectetur justo. 
@@ -53,7 +50,14 @@
 			Integer at pretium turpis, sit amet molestie nunc. <br>
 
 		</p>
-		<br><br><br>
+
+		<br><br>
+
+		<p class="center"><br><br><a class="btn waves-effect waves-light green accent-4" href="update.php?siape=<?php echo $siape;?>"> Update</a><br></p>
+
+		<p class="center"><br><br><a class="btn waves-effect waves-light red darken-4" href="logout.php">Log Out</a><br><br><br><br></p>
+
+		<br><br>
 
 		<!-- chamando o footer na pagina -->	
 		<?php include_once 'footer.php';?>	

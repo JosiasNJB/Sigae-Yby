@@ -25,7 +25,7 @@
 	
 				}
 				else{
-					$_SESSION['erros'][] = "parâmetro inválido.";
+					$_SESSION['erros'][] = "<li class ='center'>parâmetro inválido.</li>";
 				}
 			}
 

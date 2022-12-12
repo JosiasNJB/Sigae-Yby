@@ -17,22 +17,22 @@ if(isset($_POST['btn_evento'])){
 
     //preenchendo o array de erros
     if(empty($event)){
-        $errosevent[] = "<li>O campo nome precisa ser preenchido</li>";
+        $errosevent[] = "<li class ='center'>O campo nome precisa ser preenchido</li>";
     }
 
     if(empty($tipevent)){
-        $errosevent[] = "<li>O campo tema precisa ser preenchido</li>";
+        $errosevent[] = "<li class ='center'>O campo tema precisa ser preenchido</li>";
     }
 
     if(empty($descevent)){
-        $errosevent[] = "<li>O campo descrição precisa ser preenchido</li>";
+        $errosevent[] = "<li class ='center'>O campo descrição precisa ser preenchido</li>";
     }
 
     if(isset($_POST['statusevent'])){
         $statusevent = $_POST['statusevent'];
     }
     else{
-        $errosevent[] = "<li>Favor selecionar uma disponibilidade para o evento</li>";
+        $errosevent[] = "<li class ='center'>Favor selecionar uma disponibilidade para o evento</li>";
     }
 
     if(empty($errosevent)){
