@@ -38,10 +38,22 @@
 			que traduziam os efeitos permanentes dessa violenta interação em sua auto-estima. A história
 			permaneceu em silêncio durante anos. Somente como egresso, por ocasião de um projeto de
 			extensão, ela foi compartilhada com o Neabi."
-			<br>
 
-			<a href="url" download="arquivos/resposta.pdf">Resposta ao Processo N. 23158.000791/2022-01</a>
+			<br>
 			
+				"Ao reforçar o convite para participação de uma turma do ensino técnico integrado em
+			uma atividade lúdica de um evento de celebração do mês da Consciência Negra, um dos
+			organizadores da ação recebe como retorno de uma professora, branca, a informação de que
+			o evento conflitava com uma prova previamente marcada com a turma. A decisão de manter o
+			que já estava planejado é inquestionável. No entanto, a conversa prosseguiu e a professora
+			reivindicou a possibilidade de um evento sobre o mês da Consciência Italiana, tendo em vista
+			que os seus ancestrais italianos sofreram muito quando chegaram ao Brasil. Descendentes de
+			italianos, cuja migração foi incentivada por políticas de embranquecimento da população
+			brasileira, herdam terras que foram concedidas pelo Estado aos seus antigos, além de
+			possuírem direitos em decorrência da possibilidade da dupla-cidadania."
+
+			<br>
+				<a href="url" download="arquivos/resposta.pdf">Resposta ao Processo N. 23158.000791/2022-01</a>
 			<br><br><br><br>
 		</p>
 

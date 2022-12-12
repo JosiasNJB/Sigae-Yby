@@ -25,7 +25,7 @@ if(autenticar($db_con)) {
 	// senha - senha do administrador 
 	// telefone - telefone do administrador
 
-	if (isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['siape']) && isset($_POST['senha']) $_POST['telefone']) { //PRECISA ESTAR NA MESMA ORDEM do modelo conceitual?
+	if (isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['siape']) && isset($_POST['senha']) $_POST['telefone']) { 
 		
 		// Aqui sao obtidos os parametros
 		$nome = $_POST['nome'];
