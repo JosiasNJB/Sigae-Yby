@@ -41,7 +41,7 @@
 			extensão, ela foi compartilhada com o Neabi."
 
 			<br>
-			
+
 				"Ao reforçar o convite para participação de uma turma do ensino técnico integrado em
 			uma atividade lúdica de um evento de celebração do mês da Consciência Negra, um dos
 			organizadores da ação recebe como retorno de uma professora, branca, a informação de que
@@ -54,7 +54,7 @@
 			possuírem direitos em decorrência da possibilidade da dupla-cidadania."
 
 			<br>
-				<a href="url" download="arquivos/resposta.pdf">Resposta ao Processo N. 23158.000791/2022-01</a>
+				<a href="url" download="https://drive.google.com/file/d/17eCQSAv_IU7dvVTvfRmGYea55TYXqk9R/view?usp=sharing">Resposta ao Processo N. 23158.000791/2022-01</a>
 			<br><br><br><br>
 		</p>
 
