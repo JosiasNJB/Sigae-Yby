@@ -112,7 +112,7 @@
 				"$dadosevent" irá buscar um array contendo os dados do index.
                 */
                 
-                if (mysqli_num_rows($resultadoprivate)>0){
+                if (mysqli_num_rows($resultadoprivate)>0 and $logado == true){
                      while($dadosevent =mysqli_fetch_array($resultadoprivate)){
                         $idevent=['id_evento'];
 						$eventname = $dadosevent['eventnom'];
