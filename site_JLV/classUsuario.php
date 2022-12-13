@@ -50,7 +50,7 @@
         }
 
         public function login() {
-            $sql = "SELECT * FROM usuario WHERE Siape = :siape and senha = :senha";
+            $sql = "SELECT * FROM usuario WHERE siape = :siape and senha = :senha";
             $stmt = Database::prepare($sql);
             $stmt->bindParam(":siape", $this->siape);
             $stmt->bindParam(":senha", $this->senha);
@@ -72,7 +72,7 @@
         }
 
         public function update($siape){
-            $sql="UPDATE $this->table SET nome = :nome, email = :email , senha = :senha , telefone = :tel WHERE Siape = :siape ";
+            $sql="UPDATE $this->table SET nome = :nome, email = :email , senha = :senha , telefone = :tel WHERE siape = :siape ";
             $stmt = Database::prepare($sql);
             $stmt->bindParam(':nome', $this->nome);
             $stmt->bindParam(':email', $this->email);

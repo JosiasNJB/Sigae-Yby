@@ -8,21 +8,21 @@
     include 'conexao.php';
 
     //obtendo id do usuario selecionado via get
-    if(isset($_GET['id'])){
-        $_SESSION['id2'] = $_GET['id'];
+
+    if(isset($_GET['matricula'])){
+        $_SESSION['matricula'] = $_GET['matricula'];
 
     }
 
-    $req = $_SESSION['id2'];
+    $req = $_SESSION['matricula'];
 
-    $sql = "DELETE FROM pessoa WHERE id_pessoa = $req";
-    $sql2 = "DELETE FROM aluno WHERE FK_PESSOA_id_pessoa = $req";
+    $sql = "DELETE FROM aluno WHERE matricula = $req";
 
     $del = mysqli_query($connect, $sql);
-    $del2 = mysqli_query($connect, $sql2);
 
     mysqli_close($connect);
 
-    header('location: admpag.php');
+    header('location: altdados.php');
+
 
 ?>

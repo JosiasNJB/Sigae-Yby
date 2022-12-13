@@ -16,9 +16,13 @@
                 <table class="striped">
                     <thead>
                         <tr>
+                            <th>Matricula: </th>
                             <th>Nome: </th>
-                            <th>Email: </th>
-                            <th>Etnia: </th>                                                   
+                            <th>Etnia: </th>
+                            <th>Cota: </th>
+                            <th>Renda: </th>
+                            <th>Curso: </th>
+                            <th>Status de Matricula: </th>                                                   
                         </tr>
                     </thead>
                     
@@ -26,8 +30,14 @@
                     <?php
                         
                         //sql query como uma string selecionando todos os dados dos usuarios na tabela
-                        $sql="SELECT * FROM aluno a inner join etnia e where FK_ETNIA_id_etnia = id_etnia";
-                        
+                        $sql="SELECT * FROM aluno a 
+                        inner join etnia as e on(FK_ETNIA_id_etnia = e.id_etnia)
+                        inner join cota as c on(FK_COTA_id_cota = c.id_cota)
+                        inner join renda as r on(FK_RENDA_id_renda = r.id_renda)
+                        inner join curso as cr on(FK_CURSO_id_curso = cr.id_curso)
+                        inner join statusm as s on(FK_STATUSM_id_status = s.id_status)";
+                        //inner join renda r where FK_RENDA_id_renda = id_renda inner join curso cr where FK_CURSO_id_curso = id_curso inner join statusm s where FK_STATUSM_id_status = id_status; 
+                        //var_dump($sql);
 
                         /* Está retornando, de dentro da tabela representada pela variável "$connect",
 					    um array que contém todos os resultados que atendem aos requisitos da consulta
@@ -44,12 +54,16 @@
                             ?>
                         <tr>
                             <!-- exibindo os dados obtidos do usuario -->
+                            <td><?php echo $dados['matricula'];?></td>
                             <td><?php echo $dados['nome'];?></td>
-                            <td><?php echo $dados['email'];?></td>
                             <td><?php echo $dados['descetnia'];?></td>
-                            <td><a class="btn waves-effect waves-light red darken-4" href="deletealuno.php?id=<?php echo $dados['matricula'];?>"> Delete</td>
+                            <td><?php echo $dados['desccota'];?></td>
+                            <td><?php echo $dados['descrend'];?></td>
+                            <td><?php echo $dados['desccurso'];?></td>
+                            <td><?php echo $dados['descstatus'];?></td>
+                            <td><a class="btn waves-effect waves-light red darken-4" href="deletaluno.php?matricula=<?php echo $dados['matricula'];?>"> Delete</td>
 
-                            <td><a class="btn waves-effect waves-light green accent-4" href="updatealuno.php?id=<?php echo $dados['matricula'];?>"> Update</td>
+                            <td><a class="btn waves-effect waves-light green accent-4" href="updatealuno.php?matricula=<?php echo $dados['matricula'];?>"> Update</td>
                         </tr>
 
                         
@@ -61,10 +75,14 @@
                         ?>
 
                         <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
+                            <td class='center'>-</td>
+                            <td class='center'>-</td>
+                            <td class='center'>-</td>
+                            <td class='center'>-</td>
+                            <td class='center'>-</td>
+                            <td class='center'>-</td>
+                            <td class='center'>-</td>
+                            
 				        </tr>
 
                         <?php

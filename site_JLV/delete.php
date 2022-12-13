@@ -16,7 +16,7 @@
 
     $req = $_SESSION['siape2'];
 
-    $sql = "DELETE FROM usuario WHERE Siape = $req";
+    $sql = "DELETE FROM usuario WHERE siape = $req";
 
     $del = mysqli_query($connect, $sql);
 

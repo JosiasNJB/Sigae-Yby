@@ -11,7 +11,7 @@
 		//abstract public function update($id);
 		
 		public function  find($siape){
-			$sql = "SELECT * FROM $this->table WHERE Siape = :siape";
+			$sql = "SELECT * FROM $this->table WHERE siape = :siape";
 			$stmt = Database::prepare($sql);
 			$stmt->bindParam(':siape', $siape, PDO::PARAM_INT);
 			$stmt->execute();

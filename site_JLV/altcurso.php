@@ -10,7 +10,7 @@ include_once 'header.php';
 
 <br><br>
 
-<h3 class="light"> Dados de administrador <br><br></h3>
+<h3 class="light"> Alteração de Eventos <br><br></h3>
 
 
 <div class="row">
@@ -18,10 +18,9 @@ include_once 'header.php';
     <table class="striped">
         <thead>
             <tr>
-                <th>Siape: </th>
                 <th>Nome: </th>
-                <th>Email: </th>
-                <th>Telefone: </th>                                                   
+                <th>Tema: </th>
+                <th>Tipo de evento: </th>                                                   
             </tr>
         </thead>
         
@@ -29,7 +28,7 @@ include_once 'header.php';
         <?php
             
             //sql query como uma string selecionando todos os dados dos usuarios na tabela
-            $sql="SELECT siape, nome, email, telefone FROM usuario";
+            $sql="SELECT * FROM evento order by eventstatus";
             
 
             /* Está retornando, de dentro da tabela representada pela variável "$connect",
@@ -43,17 +42,22 @@ include_once 'header.php';
             */
             if (mysqli_num_rows($resultado)>0){
                 while($dados =mysqli_fetch_array($resultado)){
+                    if($dados['eventstatus'] == 0){
+                        $status = "Publico";
+                    }
+                    else{
+                        $status = "Privado";
+                    }
 
-                ?>
+            ?>
             <tr>
                 <!-- exibindo os dados obtidos do usuario -->
-                <td><?php echo $dados['siape'];?></td>
-                <td><?php echo $dados['nome'];?></td>
-                <td><?php echo $dados['email'];?></td>
-                <td><?php echo $dados['telefone'];?></td>
-                <td><a class="btn waves-effect waves-light red darken-4" href="delete.php?siape=<?php echo $dados['siape'];?>"> Delete</td>
+                <td><?php echo $dados['eventnom'];?></td>
+                <td><?php echo $dados['tema'];?></td>
+                <td class='center'><?php echo $status;?></td>
+                <td><a class="btn waves-effect waves-light red darken-4" href="eventdelete.php?id_evento=<?php echo $dados['id_evento'];?>"> Delete</td>
 
-                <td><a class="btn waves-effect waves-light green accent-4" href="update.php?siape=<?php echo $dados['siape'];?>"> Update</td>
+                <!-- <td><a class="btn waves-effect waves-light green accent-4" href="eventupdate.php?id_evento=<?php //echo $dados['id_evento'];?>"> Update</td>-->
             </tr>
 
             
@@ -65,10 +69,9 @@ include_once 'header.php';
             ?>
 
             <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
+                <td class='center'>-</td>
+                <td class='center'>-</td>
+                <td class='center'>-</td>
             </tr>
 
             <?php

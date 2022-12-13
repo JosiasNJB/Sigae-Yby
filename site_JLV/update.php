@@ -42,7 +42,7 @@
 				<!-- <div> é a tag usada para dividir e organizar o documento -->
 				<div class="row">
 					<div class="input-field col s10 pull-s1">
-						  <input id="siape" type="text" name="siape" value="<?php echo $_SESSION['tableline']['Siape']; ?>"readonly>
+						  <input id="siape" type="text" name="siape" value="<?php echo $_SESSION['tableline']['siape']; ?>"readonly>
 						  <label for="siape">Siape</label>
 					</div>
 				</div>

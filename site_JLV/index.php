@@ -41,10 +41,6 @@
 			extensão, ela foi compartilhada com o Neabi."
 			<br><br><br>
 			"Ao reforçar o convite para participação de uma turma do ensino técnico integrado em
-
-			<br>
-
-				"Ao reforçar o convite para participação de uma turma do ensino técnico integrado em
 			uma atividade lúdica de um evento de celebração do mês da Consciência Negra, um dos
 			organizadores da ação recebe como retorno de uma professora, branca, a informação de que
 			o evento conflitava com uma prova previamente marcada com a turma. A decisão de manter o
@@ -56,7 +52,7 @@
 			possuírem direitos em decorrência da possibilidade da dupla-cidadania."
 
 			<br>
-			<a href="https://drive.google.com/file/d/17eCQSAv_IU7dvVTvfRmGYea55TYXqk9R/view?usp=sharing">Resposta ao Processo N. 23158.000791/2022-01</a>
+			<a href="https://drive.google.com/file/d/17eCQSAv_IU7dvVTvfRmGYea55TYXqk9R/view?usp=sharing"><b>Resposta ao Processo N. 23158.000791/2022-01</b></a>
 
 			<br><br><br><br>
 		</p>

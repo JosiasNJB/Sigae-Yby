@@ -37,7 +37,7 @@
 				$siape = $_SESSION['siape'];
 
 				//sql query para obter nome e identificador de adm do usuario 
-				$sql = "SELECT nome from usuario where Siape = $siape;";
+				$sql = "SELECT nome from usuario where siape = $siape;";
 
 				//Msqli_query aplica a string "$sql"
 				$resultado = mysqli_query($connect, $sql);

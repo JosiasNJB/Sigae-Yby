@@ -24,7 +24,7 @@
 
 
 
-        <h3 class="light"> Relatórios</h3>
+        <h3 class="light"> Histórico de aluno</h3>
 
         <br><br><br><br>
 

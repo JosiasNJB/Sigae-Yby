@@ -21,7 +21,7 @@ if(isset($_POST['btn_Send'])){
 	$senha = md5(mysqli_escape_string($connect,$_POST['senha'])); //Senha criptografada com o MD5
 	//Sanitizando o campo de nome
 	$nomeSanitize = filter_var($nome, FILTER_SANITIZE_STRING);
-    $sql = "SELECT Siape FROM USUARIO where Siape = $siape";
+    $sql = "SELECT siape FROM USUARIO where siape = $siape";
     $res = mysqli_query($connect, $sql);
 
 

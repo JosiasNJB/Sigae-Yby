@@ -14,7 +14,7 @@
 				$nome=$_POST['nome'];
 				$email=$_POST['email'];
 
-				$sql2 = "SELECT Matricula FROM ALUNO where Matricula = '$matricula';";
+				$sql2 = "SELECT matricula FROM ALUNO where matricula = '$matricula';";
 				$res = mysqli_query($connect, $sql2);
 
 				//preenchendo o array de erros
@@ -39,6 +39,13 @@
 					}
 				}
 
+				if(isset($_POST['assist'])){
+					$assist = $_POST['assist'];
+				}
+				else{
+					$erros[] = "<li class ='center'>O campo de assistência precisa ser preenchido</li>";
+				}
+
 				if(isset($_POST['etnia'])){
 					$etnia = $_POST['etnia'];
 				}
@@ -60,6 +67,13 @@
 					$erros[] = "<li class ='center'>O campo curso precisa ser preenchido</li>";
 				}
 
+				if(isset($_POST['status'])){
+					$status = intval($_POST['status']);
+				}
+				else{
+					$erros[] = "<li class ='center'>O campo de Status de Matricula precisa ser preenchido</li>";
+				}
+
 				if(isset($_POST['renda'])){
 					$renda = intval($_POST['renda']);
 				}
@@ -73,22 +87,16 @@
 					$nome=filter_var($nome, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
 
 					//Sql query para inserir os valores obtidos na tabela 
-					$sql="INSERT INTO aluno(Matricula, Nome, FK_ETNIA_id_etnia) VALUES('$matricula', '$nome', $etnia);";
-					//var_dump($sql); FK_COTA_id_Cota, FK_RENDA_id_Renda
-
-					var_dump($sql);
+					$sql="INSERT INTO aluno(matricula, nome, assistencia, FK_ETNIA_id_etnia, FK_COTA_id_cota, FK_CURSO_id_curso, FK_STATUSM_id_status, FK_RENDA_id_renda) VALUES('$matricula', '$nome', $assist, $etnia, $cota, $curso, $status, $renda);";
 		
 					/*Msqli_query aplica a string "$sql"
 					e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
 					*/ 
-					var_dump($etnia);
 					if(mysqli_query($connect, $sql)){
-						echo 'meupau';
 						//header('location: admpag.php');
 					}
 					else{
-						echo 'dsjk';
-						//header('location: cadastro.php');
+						header('location: cadastro.php');
 					}
 				}
 			}
@@ -125,32 +133,32 @@
 				</div>
 
 				<br><br><br>
-				<!--
+
 				<div class="row">
 					<h6 class="col s4 push-s1 valign-wrapper"><b>Possui assistência?</b></h6>
 					<div class="input-field col s5 pull-s1">
 		
 						<p>
 							<label>
-							<input class="with-gap col s2" name="assist" type="radio" value="1"/>
+							<input class="with-gap col s2" name="assist" type="radio" value="0"/>
 							<span>Sim</span>
 							</label>
 						</p>
 		
 						<p>
 							<label>
-							<input class="with-gap col s2 " name="assist" type="radio" value="2" />
+							<input class="with-gap col s2 " name="assist" type="radio" value="1" />
 							<span>Não</span>
 							</label>
 						</p>
 
 					</div>
 				</div>
-				-->
+
 					<br><br><br>
 
 				<div class="row">
-					<div class="input-field col s2 push-s1">
+					<div class="input-field col s2 push-s2">
 						<select name="etnia">
 							<option value="" disabled selected>Etnia</option>
 							<option value="1">Preto</option>
@@ -161,7 +169,7 @@
 						</select>
 					</div>
 
-					<div class="input-field col s2 ">
+					<div class="input-field col s2 push-s1 ">
 						<select name="cota">
 							<option value="" disabled selected>Cota</option>
 							<option value="1">Ampla concorrência</option>
@@ -172,7 +180,7 @@
 						</select>
 					</div>
 
-					<div class="input-field col s2 pull-s1">
+					<div class="input-field col s2 ">
 						<select name="curso">
 							<option value="" disabled selected>Curso</option>
 							<option value="1">Informática para Internet</option>
@@ -183,7 +191,16 @@
 						</select>
 					</div>
 
-					<div class="input-field col s2 pull-s2">
+					<div class="input-field col s2 pull-s1 ">
+						<select name="status">
+							<option value="" disabled selected>Status de Matricula</option>
+							<option value="1">Cursando</option>
+							<option value="2">Desistente</option>
+							<option value="3">Trancado</option>
+						</select>
+					</div>
+
+					<div class="input-field col s2 pull-s2 ">
 						<select name="renda">
 							<option value="" disabled selected>Renda(Salários minimos)</option>
 							<option value="1">0 a 2</option>
