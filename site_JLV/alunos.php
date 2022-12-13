@@ -27,7 +27,7 @@
 
 		<?php
 			if (mysqli_num_rows($resultado)==0){
-				$stat = "<div class='my-wrapper valign-wrapper center-align'><h5> Parece que não há nenhum item no agora, favor volte mais tarde. </h5></div>";
+				$stat = "<div class='my-wrapper valign-wrapper center-align'><h5> Parece que não há nenhum item no histórico agora, favor volte mais tarde. </h5></div>";
 			}
 			else{
 				$stat = "<h3 class='light'> Histórico de alunos </h3>";

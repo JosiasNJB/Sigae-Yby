@@ -30,10 +30,10 @@
                 var data = google.visualization.arrayToDataTable([
                 ['Task', 'Hours per Day'],
                 ['Preto', <?php echo $graph[0]; ?>],
-                ['Indigena',<?php echo $graph[1]; ?> ],
-                ['Outro', <?php echo $graph[2]; ?>],
-                ['Pardo', <?php echo $graph[3];?>],
-                ['Preto', <?php echo $graph[4]; ?>]
+                ['Pardo',<?php echo $graph[1]; ?> ],
+                ['Branco', <?php echo $graph[2]; ?>],
+                ['Indígena', <?php echo $graph[3];?>],
+                ['Outro', <?php echo $graph[4]; ?>]
                 ]);
 
                 var options = {
@@ -44,7 +44,7 @@
                         color: '#FFF'
 
                     },
-                    title: 'Perfil de desistência por etnia campus IFES - Serra',
+                    title: 'Perfil étnico campus IFES - Serra',
                     'backgroundColor': '#242424'
 
                 };
