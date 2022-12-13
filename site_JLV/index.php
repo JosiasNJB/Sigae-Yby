@@ -15,9 +15,6 @@
 				<a class="carousel-item" href="graph.php"><img src="img/etnia.png"></a>
 			
 				<a class="carousel-item" href="graph.php"><img src="img/desistencia.png"></a>
-			
-				<a class="carousel-item" href="graph.php"><img src="img/transporte.png"></a>
-
 			</div>	
 		</div>
 

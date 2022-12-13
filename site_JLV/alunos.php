@@ -10,83 +10,90 @@
 
 		//chamando o arquivo de conexao
 		
-		//sql query como uma string selecionando todos os dados dos depoimentos na tabela
-		$sql="SELECT * FROM depoimento";
+		//sql query como uma string selecionando todos os dados dos evento na tabela
+		$sql="SELECT FK_ALUNO_matricula as mat, nome, titulo, deschist FROM itemhist
+		inner join aluno a on(FK_ALUNO_matricula = a.matricula) group by matricula";
+
 
 		/* Está retornando, de dentro da tabela representada pela variável "$connect",
 		um array que contém todos os resultados que atendem aos requisitos da consulta
 		dentro de "$sql".
 		*/
 		$resultado= mysqli_query($connect,$sql);
+
         ?>
 
         <br><br>
 
+		<?php
+			if (mysqli_num_rows($resultado)==0){
+				$stat = "<div class='my-wrapper valign-wrapper center-align'><h5> Parece que não há nenhum item no agora, favor volte mais tarde. </h5></div>";
+			}
+			else{
+				$stat = "<h3 class='light'> Histórico de alunos </h3>";
+
+			}
+			echo $stat;
+			if (mysqli_num_rows($resultado)>0){
 
 
-        <h3 class="light"> Histórico de aluno</h3>
-
-        <br><br><br><br>
+		?>
 
 
-		<table class="relatorio" >
+        <br><br><br>
+
+		<?php
+			while($dados =mysqli_fetch_array($resultado)){
+			
+
+		?>
+		<table class="depoimento">
+			<br>
+			<?php
+			    /* Enquanto o array que contém os resultados da consulta tiver pelo menos 1 index,
+				"$dadosevent" irá buscar um array contendo os dados do index.
+                */
+						$matricula = $dados['mat'];
+						$nome = $dados['nome'];
+						$titulo = $dados['titulo'];
+						$desc= $dados['deschist'];
+
+						$sql2 = "SELECT titulo, deschist from itemhist
+						inner join aluno a on(FK_ALUNO_matricula = a.matricula) 
+						where FK_ALUNO_matricula = '$matricula'";
+						$resultado2= mysqli_query($connect,$sql2);
+          
+            ?>
 			
 			<thead>
+				
 				<tr>
-					<th class="titlerelat">Josias Neves Jardim Borba &nbsp-&nbsp 20201tiimi0110</th>
+					<th class="titlerelat"> <?php echo "$matricula &nbsp-&nbsp $nome";?></th>
 				</tr>
 			</thead>
 			<tbody>
 				<div >
-					<tr class="bodyrelat">
-
-						<td> 
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-						</td>
-                        <br>
-
+							<?php
+								if(mysqli_num_rows($resultado2)>0){
+									while($dados2 =mysqli_fetch_array($resultado2)){
+										echo "<tr class='bodyrelat'><td><p class='center'> <b>$dados2[0]</b> </p></td></tr>
+										<tr ><td><p class='center'> $dados2[1] </p></td></tr>";
+									}
+								}
+							?>
+					<tr>
 					</tr>
-                    <tr class="bodyrelat">
-                        <td>
-                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-
-                        </td>
-                    </tr>
-				</div>
+					</div>
 			</tbody>
+		
 
-		</table>
+			<?php
+						}
+					}
+			?>
 
-        <table class="relatorio" >
-			
-			<thead>
-				<tr>
-					<th class="titlerelat">Vitoria Isabel &nbsp-&nbsp 20201tiimiXXXX</th>
-				</tr>
-			</thead>
-			<tbody>
-				<div >
-					<tr class="bodyrelat">
+		</table>           
 
-						<td> 
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-						</td>
-                        <br>
-
-					</tr>
-                    <tr class="bodyrelat">
-                        <td>
-                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-
-                        </td>
-                    </tr>
-				</div>
-			</tbody>
-
-		</table>
-   
         <br><br><br><br>
 
         <!-- chamando o footer na pagina -->	

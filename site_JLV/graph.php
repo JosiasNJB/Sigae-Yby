@@ -3,15 +3,21 @@
             //chamando o header na pagina	
             include_once 'header.php';
 
-            /*$sql = "SELECT count(etnia) from pessoa group by etnia;";
+            $sql="SELECT count(FK_ETNIA_id_etnia) FROM aluno a 
+            inner join etnia as e on(FK_ETNIA_id_etnia = e.id_etnia)
+            inner join cota as c on(FK_COTA_id_cota = c.id_cota)
+            inner join renda as r on(FK_RENDA_id_renda = r.id_renda)
+            inner join curso as cr on(FK_CURSO_id_curso = cr.id_curso)
+            inner join statusm as s on(FK_STATUSM_id_status = s.id_status)
+            group by FK_ETNIA_id_etnia";
+
             $resultado= mysqli_query($connect,$sql);
 			if (mysqli_num_rows($resultado)>0){
                 while($dados =mysqli_fetch_array($resultado)){
-                    $graph[] = $dados[0];
+                    $graph[] = intval($dados[0]);
 
                 }
             }
-            */
         ?>
 
         <script type="text/javascript">
@@ -23,11 +29,11 @@
 
                 var data = google.visualization.arrayToDataTable([
                 ['Task', 'Hours per Day'],
-                ['Branco', 1 ],
-                ['Indigena', 5 ],
-                ['Outro', 2 ],
-                ['Pardo', 2 ],
-                ['Preto',   4 ]
+                ['Preto', <?php echo $graph[0]; ?>],
+                ['Indigena',<?php echo $graph[1]; ?> ],
+                ['Outro', <?php echo $graph[2]; ?>],
+                ['Pardo', <?php echo $graph[3];?>],
+                ['Preto', <?php echo $graph[4]; ?>]
                 ]);
 
                 var options = {

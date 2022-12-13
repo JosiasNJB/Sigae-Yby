@@ -37,7 +37,7 @@
 				$siape = $_SESSION['siape'];
 
 				//sql query para obter nome e identificador de adm do usuario 
-				$sql = "SELECT nome from usuario where siape = $siape;";
+				$sql = "SELECT nome, siape from usuario where siape = $siape;";
 
 				//Msqli_query aplica a string "$sql"
 				$resultado = mysqli_query($connect, $sql);
@@ -47,6 +47,7 @@
 				
 				//atribuindo valores do array em variaveis
 				$nome = $array[0];
+				$siape = $array['1'];
 
 				//diferenciando header para usuarios administradores
 				$img ="src='img/iflogodark.png'";
@@ -54,27 +55,25 @@
 				$perfil = "<li><a class='menuheader' href='profile.php'> $nome </li>
 				<li><a href='profile.php'><img class='profile' $img alt='LogoIF'></a></li>";
 				$dep = "<li><a class='menuheader' href='depoimentos.php'>Depoimentos</a></li>";
-				$aluno = "<li><a class='menuheader' href='alunos.php'> Alunos </a></li>";
+				$aluno = "<li><a class='menuheader' href='alunos.php'> Histórico </a></li>";
 				$onoff = "";
-				$title = $nome;
 
 			}
 			//diferenciando o header caso o usuario nao esteja logado
 			else{
 				$admpag = "";
 				$altdados = "";
-				$dep = "";
+				$dep = "<li><a class='menuheader' href='cdep.php'>Depoimentos</a></li>";
 				$aluno = "";
 				//$img = "src='img/iflogo.png'";
 				$perfil = "";
 				$onoff = "<li><a class='menuheader' href='login.php'>Login</a></li>";
-				$title = "Yby";
 			}
 			
 			
 		?>
 
-		<title> <?php echo $title; ?></title>
+		<title> Yby </title>
 
 	</head>
 

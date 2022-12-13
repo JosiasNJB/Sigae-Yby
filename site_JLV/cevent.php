@@ -124,6 +124,8 @@ if(isset($_POST['btn_evento'])){
             ?>
         </ul>
     </div>
+    <br><br><br>
+    
 
 <!-- chamando o footer na pagina -->	
 <?php include_once 'footer.php';?>                        

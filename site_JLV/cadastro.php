@@ -87,13 +87,13 @@
 					$nome=filter_var($nome, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
 
 					//Sql query para inserir os valores obtidos na tabela 
-					$sql="INSERT INTO aluno(matricula, nome, assistencia, FK_ETNIA_id_etnia, FK_COTA_id_cota, FK_CURSO_id_curso, FK_STATUSM_id_status, FK_RENDA_id_renda) VALUES('$matricula', '$nome', $assist, $etnia, $cota, $curso, $status, $renda);";
+					$sql="INSERT INTO aluno(matricula, nome, assistencia, FK_ETNIA_id_etnia, FK_COTA_id_cota, FK_CURSO_id_curso, FK_STATUSM_id_status, FK_RENDA_id_renda, FK_USUARIO_siape) VALUES('$matricula', '$nome', $assist, $etnia, $cota, $curso, $status, $renda, $siape);";
 		
 					/*Msqli_query aplica a string "$sql"
 					e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
 					*/ 
 					if(mysqli_query($connect, $sql)){
-						//header('location: admpag.php');
+						header('location: admpag.php');
 					}
 					else{
 						header('location: cadastro.php');
